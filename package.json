@@ -1,0 +1,27 @@
+{
+  "name": "janus-uri-factory-plugins",
+  "version": "0.0.0",
+  "description": "Plugins for the Janus uri-factory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:UMNLibraries/janus-uri-factory-plugins.git"
+  },
+  "author": "David Naughton",
+  "license": "MIT",
+  "devDependencies": {
+    "cheerio": "^0.17.0",
+    "request": "^2.44.0",
+    "tape": "^3.0.0"
+  },
+  "dependencies": {
+    "janus": "git+ssh://git@github.com/UMNLibraries/janus.git",
+    "bluebird": "^2.9.34",
+    "require-all": "^2.0.0",
+    "stampit": "^2.1.1",
+    "urijs": "^1.17.1"
+  }
+}
