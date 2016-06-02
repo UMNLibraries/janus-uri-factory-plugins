@@ -19,10 +19,10 @@ test('pubmed plugin baseUri()', function (t) {
 });
 
 test('pubmed plugin emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&otool=umnbmlib')
+  tester.emptySearchUri(t, plugin, 'https://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&otool=umnbmlib');
 });
 
-test ('pubmed plugin uriFor() missing "search" arguments', function (t) {
+test('pubmed plugin uriFor() missing "search" arguments', function (t) {
   // testCases map state descriptions to uriFor() arguments
   const testCases = {
     'all arguments are null': {
@@ -34,7 +34,7 @@ test ('pubmed plugin uriFor() missing "search" arguments', function (t) {
   tester.missingSearchArgs(t, plugin, testCases);
 });
 
-test ('pubmed plugin uriFor() valid "search" arguments', function (t) {
+test('pubmed plugin uriFor() valid "search" arguments', function (t) {
   // testCases map expected uri to uriFor() arguments
   const testCases = {
     'https://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&otool=umnbmlib&term=neoplasm': {
@@ -44,10 +44,10 @@ test ('pubmed plugin uriFor() valid "search" arguments', function (t) {
     },
   };
 
-  function getResultCount(html) {
-    const $ = cheerio.load(html)
-    const count = $('#resultcount').attr('value')
-    return count
+  function getResultCount (html) {
+    const $ = cheerio.load(html);
+    const count = $('#resultcount').attr('value');
+    return count;
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount);

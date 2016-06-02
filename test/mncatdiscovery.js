@@ -12,7 +12,7 @@ test('mncatdiscovery emptySearchUri()', function (t) {
   tester.emptySearchUri(t, plugin, 'http://primo.lib.umn.edu/primo_library/libweb/action/search.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng');
 });
 
-test ('mncatdiscovery uriFor() missing "search" arguments', function (t) {
+test('mncatdiscovery uriFor() missing "search" arguments', function (t) {
   // testCases map state descriptions to uriFor arguments
   const testCases = {
     'all arguments are null': {
@@ -47,7 +47,7 @@ test('mncatdiscovery invalid scope args', function (t) {
   tester.invalidScopeArgs(t, plugin, 'http://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
 });
 
-test ('mncatdiscovery uriFor() valid "search" arguments', function (t) {
+test('mncatdiscovery uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
     'http://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin': {
@@ -72,10 +72,10 @@ test ('mncatdiscovery uriFor() valid "search" arguments', function (t) {
     },
   };
 
-  function getResultCount(html) {
+  function getResultCount (html) {
     const $ = cheerio.load(html);
     const ems = $('#resultsNumbersTile h1 em');
-    const count = parseInt( $(ems[0]).text().trim().replace(/,/g,"") );
+    const count = parseInt($(ems[0]).text().trim().replace(/,/g, ''));
     return count;
   }
 
