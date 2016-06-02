@@ -23,7 +23,7 @@
     "tape": "^3.0.0"
   },
   "dependencies": {
-    "janus": "git+ssh://git@github.com/UMNLibraries/janus.git",
+    "janus": "UMNLibraries/janus",
     "bluebird": "^2.9.34",
     "require-all": "^2.0.0",
     "stampit": "^2.1.1",
