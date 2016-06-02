@@ -1,2 +1,3 @@
 'use strict';
-module.exports = require('require-all')(__dirname + '/lib');
+const path = require('path');
+module.exports = require('require-all')(path.resolve(__dirname, 'lib'));
