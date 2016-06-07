@@ -139,7 +139,17 @@ Collection URL                                  | url-js scope | Description
 https://conservancy.umn.edu/handle/11299/1      | 1            | University of Minnesota - Twin Cities
 https://conservancy.umn.edu/handle/11299/169792 | 169792       | Articles and Scholarly Works
 
-## Usage
+## Install
+
+Install with npm. In package.json:
+
+```json
+  "dependencies": {
+    "janus-uri-factory-plugins": "UMNLibraries/janus-uri-factory-plugins"
+  }
+```
+
+## Use
 
 ```javascript
 const janus = require('janus');
@@ -149,9 +159,9 @@ const app = janus({
 });
 ```
 
-## Tests
+## Test
 
-To run all unit tests:
+Run all unit tests:
 
 ```
 npm test
@@ -165,7 +175,7 @@ Run a single unit test by invoking [tape](https://github.com/substack/tape) dire
 
 ## Lint
 
-To lint all files:
+Lint all files:
 
 ```
 npm run lint
