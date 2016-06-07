@@ -170,7 +170,7 @@ npm test
 Run a single unit test by invoking [tape](https://github.com/substack/tape) directly:
 
 ```
-./node_modules/tape/bin/tape test/mncat-discovery.js
+./node_modules/tape/bin/tape test/mncatdiscovery.js
 ```
 
 ## Lint
