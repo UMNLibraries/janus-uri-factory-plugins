@@ -2,7 +2,7 @@
 const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').umedia();
-const tester = require('janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('umedia baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://umedia.lib.umn.edu/dasearch');

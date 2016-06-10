@@ -2,7 +2,7 @@
 const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').pubmed();
-const tester = require('janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('pubmed plugin default scopes', function (t) {
   t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object');

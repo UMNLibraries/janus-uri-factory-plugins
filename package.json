@@ -1,5 +1,5 @@
 {
-  "name": "janus-uri-factory-plugins",
+  "name": "@nihiliad/janus-uri-factory-plugins",
   "version": "0.0.0",
   "description": "Plugins for the Janus uri-factory.",
   "main": "index.js",
@@ -24,7 +24,7 @@
     "tape": "^3.0.0"
   },
   "dependencies": {
-    "janus": "UMNLibraries/janus",
+    "@nihiliad/janus": "^0.0.0",
     "bluebird": "^2.9.34",
     "require-all": "^2.0.0",
     "stampit": "^2.1.1",

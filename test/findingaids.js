@@ -2,7 +2,7 @@
 const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').findingaids();
-const tester = require('janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('findingaids baseUri()', function (t) {
   tester.baseUri(t, plugin, 'http://discover.lib.umn.edu/cgi/f/findaid/findaid-idx?c=umfa&cc=umfa&type=simple');

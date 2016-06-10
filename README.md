@@ -159,15 +159,15 @@ Install with npm. In package.json:
 
 ```json
   "dependencies": {
-    "janus-uri-factory-plugins": "UMNLibraries/janus-uri-factory-plugins"
+    "@nihiliad/janus-uri-factory-plugins": "^0.0.0"
   }
 ```
 
 ## Use
 
 ```javascript
-const janus = require('janus');
-const plugins = require('janus-uri-factory-plugins');
+const janus = require('@nihiliad/janus');
+const plugins = require('@nihiliad/janus-uri-factory-plugins');
 const app = janus({
   uriFactoryPlugins: plugins,
 });

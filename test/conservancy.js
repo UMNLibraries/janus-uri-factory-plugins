@@ -2,7 +2,7 @@
 const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').conservancy();
-const tester = require('janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('conservancy baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://conservancy.umn.edu/discover');

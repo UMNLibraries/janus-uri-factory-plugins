@@ -1,7 +1,7 @@
 'use strict';
 const test = require('tape');
 const plugins = require('../');
-const factory = require('janus/uri-factory');
+const factory = require('@nihiliad/janus/uri-factory');
 
 test('factory instantiation with all plugins', function (t) {
   t.doesNotThrow(

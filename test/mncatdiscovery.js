@@ -2,7 +2,7 @@
 const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').mncatdiscovery();
-const tester = require('janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('mncatdiscovery baseUri()', function (t) {
   tester.baseUri(t, plugin, 'http://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng');
