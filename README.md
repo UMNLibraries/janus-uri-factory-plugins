@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/UMNLibraries/janus-uri-factory-plugins.png)](http://travis-ci.org/UMNLibraries/janus-uri-factory-plugins)
 
-Plugins for the [Janus](https://github.com/UMNLibraries/janus) uri-factory. See the Janus documentation for the plugin specification.
+Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-factory-plugins).
 
 ## Scopes
 
@@ -172,6 +172,11 @@ Run a single unit test by invoking [tape](https://github.com/substack/tape) dire
 ```
 node_modules/.bin/tape test/mncatdiscovery.js
 ```
+
+### Integration Tests
+
+Some tests make HTTP requests to real web services. To run those tests, set the `RUN_INTEGRATION_TESTS` environment variable to a true value.
+The default value is false.
 
 ## Lint
 
