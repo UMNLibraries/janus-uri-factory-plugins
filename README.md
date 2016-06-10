@@ -4,6 +4,20 @@
 
 Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-factory-plugins).
 
+## Contents
+
+- [Scopes](#scopes)
+	- [FindingAids](#findingaids)
+	- [MncatDiscovery](#mncatdiscovery)
+	- [PubMed](#pubmed)
+	- [UMedia](#umedia)
+	- [Conservancy](#conservancy)
+- [Install](#install)
+- [Use](#use)
+- [Test](#test)
+	- [Integration Tests](#integration-tests)
+- [Lint](#lint)
+
 ## Scopes
 
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
@@ -191,4 +205,3 @@ Lint a single file by invoking [ESLint](http://eslint.org/) directly:
 ```
 node_modules/.bin/eslint.js index.js
 ```
-
