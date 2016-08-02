@@ -8,6 +8,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 - [Scopes](#scopes)
 	- [FindingAids](#findingaids)
+	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
@@ -40,6 +41,13 @@ swha | Social Welfare History Archives
 speccoll | Special Collections and Rare Books
 uarc | University of Minnesota Archives
 umja | Upper Midwest Jewish Archives
+
+### GoogleSearchAppliance
+
+Value | Description
+------|------------
+main | UMN Libraries Main Website
+hsl | UMN Health Sciences Libraries Website
 
 ### MncatDiscovery
 
