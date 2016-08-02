@@ -44,6 +44,10 @@ umja | Upper Midwest Jewish Archives
 
 ### GoogleSearchAppliance
 
+Because the Google Search Appliance can be used to search many UMN websites, this
+plugin requires a scope, which specifies which website to search. If scope is 
+missing, it will default to `main`.
+
 Value | Description
 ------|------------
 main | UMN Libraries Main Website
