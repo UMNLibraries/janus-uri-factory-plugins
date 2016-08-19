@@ -7,6 +7,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 ## Contents
 
 - [Scopes](#scopes)
+	- [ArchiveSpace](#archivespace)
 	- [FindingAids](#findingaids)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
@@ -22,6 +23,30 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 ## Scopes
 
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
+
+### ArchiveSpace
+
+We use ArchiveSpace repositories for scopes.
+
+Value | Description
+------|------------
+2 | Bell (James Ford Bell Library of Natural History)
+3 | CBI (Charles Babbage Institute)
+18 | CCR-SCRB (Carlson Company Records)
+4 | CLRC (Children\'s Literature Research Collections)
+5 | Givens (Givens Collection of African American Literature)
+6 | IHRCA (Immigration History Research Center Archives)
+8 | NAA (Northwest Architectural Archives)
+9 | PAA (Performing Arts Archives)
+12 | SCRB (Special Collections and Rare Books)
+11 | SWHA (Social Welfare History Archives)
+20 | Training (Training Repository)
+13 | Tretter (Jean-Nickolaus Tretter Collection in GLBT Studies)
+14 | UA (University Archives)
+15 | UMJA (Upper Midwest Jewish Archives)
+16 | UMLA (Upper Midwest Literary Archives)
+19 | WHL (Wangensteen Historical Library of Biology and Medicine)
+7 | YMCA (Krautz Family YMCA Archives)
 
 ### FindingAids
 
