@@ -25,6 +25,7 @@ test('archivespace uriFor() missing "search" arguments', function (t) {
       scope: null,
       field: 'subject',
     },
+    /*
     'only "scope" argument has a truthy value': {
       search: false,
       scope: '3', // (CBI) Charles Babbage Institute
@@ -35,6 +36,7 @@ test('archivespace uriFor() missing "search" arguments', function (t) {
       scope: '3',
       field: 'title',
     },
+    */
   };
   tester.missingSearchArgs(t, plugin, testCases);
 });
