@@ -80,6 +80,11 @@ test('umedia uriFor() valid "search" arguments', function (t) {
       scope: '69339', // John R. Borchert Map Library
       field: 'title',
     },
+    'https://umedia.lib.umn.edu/dasearch/%28tid:871%20AND%20titles:%28urdu%20poetry%29%29?mode=expert': {
+      search: 'urdu poetry',
+      scope: 'tid:871', // Classical Urdu Poetry taxonomy term within Ames Library of South Asia collection.
+      field: 'title',
+    },
   };
 
   function getResultCount (html) {
