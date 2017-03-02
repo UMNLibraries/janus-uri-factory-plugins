@@ -8,7 +8,6 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 - [Scopes](#scopes)
 	- [ArchiveSpace](#archivespace)
-	- [FindingAids](#findingaids)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
 	- [PubMed](#pubmed)
@@ -65,25 +64,6 @@ Name/Description                      | Collection URL                          
 --------------------------------------|-------------------------------------------------|-------------
 University of Minnesota - Twin Cities | https://conservancy.umn.edu/handle/11299/1      | 1
 Articles and Scholarly Works          | https://conservancy.umn.edu/handle/11299/169792 | 169792
-
-### FindingAids
-
-Name/Description | Value
------------------|------
-Charles Babbage Institute | cbi
-Children's Literature Research Collection | clrc
-Givens Collection of African American Literature | scrbg
-Immigration History Research Center Archives | ihrc
-James Ford Bell Library | jfb
-Jean Nikolaus-Tretter Collection in GLBT Studies | scrbt
-Kautz Family YMCA Archives | ymca
-Literary Manuscripts Collection | mss
-Northwest Architectural Archives | naa
-Performing Arts Archives | paa
-Social Welfare History Archives | swha
-Special Collections and Rare Books | speccoll
-University of Minnesota Archives | uarc
-Upper Midwest Jewish Archives | umja
 
 ### GoogleSearchAppliance
 
