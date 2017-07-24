@@ -5,11 +5,11 @@ const plugin = require('../').mncatdiscovery();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('mncatdiscovery baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng');
+  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US');
 });
 
 test('mncatdiscovery emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo_library/libweb/action/search.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng');
+  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US');
 });
 
 test('mncatdiscovery uriFor() missing "search" arguments', function (t) {
@@ -40,32 +40,32 @@ test('mncatdiscovery uriFor() missing "search" arguments', function (t) {
 });
 
 test('mncatdiscovery invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
+  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
 });
 
 test('mncatdiscovery invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
+  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
 });
 
 test('mncatdiscovery uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin': {
       search: 'darwin',
       scope: null,
       field: null,
     },
-    'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=mncat_discovery&query=sub%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=sub%2Ccontains%2Cdarwin': {
       search: 'darwin',
       scope: null,
       field: 'subject',
     },
-    'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=wilson_rare&query=any%2Ccontains%2Cfrancis+scott+fitzgerald': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=wilson_rare&query=any%2Ccontains%2Cfrancis+scott+fitzgerald': {
       search: 'francis scott fitzgerald',
       scope: 'wilson_rare',
       field: null,
     },
-    'https://primo.lib.umn.edu/primo_library/libweb/action/dlSearch.do?institution=TWINCITIES&vid=TWINCITIES&indx=1&dym=true&highlight=true&lang=eng&search_scope=givens&query=title%2Ccontains%2Cinvisible+man': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man': {
       search: 'invisible man',
       scope: 'givens',
       field: 'title',
@@ -73,9 +73,13 @@ test('mncatdiscovery uriFor() valid "search" arguments', function (t) {
   };
 
   function getResultCount (html) {
+    console.log("html = " + html);
     const $ = cheerio.load(html);
-    const ems = $('#resultsNumbersTile h1 em');
-    const count = parseInt($(ems[0]).text().trim().replace(/,/g, ''));
+    const ems = $('#mainResults div[class~="results-title"] span[class~="results-count"]');
+    //const count = parseInt($(ems[0]).text().trim().replace(/[",\s]/g, ''));
+    //const count = $(ems[0]).text().trim().replace(/,/g, '');
+    const count = $(ems[0]).text();
+    console.log("count = " + count);
     return count;
   }
 
