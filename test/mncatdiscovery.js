@@ -3,6 +3,8 @@ const test = require('tape');
 const cheerio = require('cheerio');
 const plugin = require('../').mncatdiscovery();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 test('mncatdiscovery baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US');
@@ -73,9 +75,19 @@ test('mncatdiscovery uriFor() valid "search" arguments', function (t) {
   };
 
   function getResultCount (html) {
-    console.log("html = " + html);
-    const $ = cheerio.load(html);
+    //const $ = cheerio.load(html);
+    const dom = new JSDOM(
+      html,
+      { 
+        url: "https://primo.lib.umn.edu",
+        resources: "usable",
+        runScripts: "dangerously",
+      }
+    );
+    const $ = require('jquery')(dom.window);
+
     const ems = $('#mainResults div[class~="results-title"] span[class~="results-count"]');
+
     //const count = parseInt($(ems[0]).text().trim().replace(/[",\s]/g, ''));
     //const count = $(ems[0]).text().trim().replace(/,/g, '');
     const count = $(ems[0]).text();
