@@ -46,32 +46,41 @@ test('archivespace plugin uriFor() with valid scope and field arguments', functi
 });
 
 test('archivespace invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'http://archives.lib.umn.edu/search?q=darwin');
+  tester.invalidFieldArgs(t, plugin, 'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=darwin');
 });
 
 test('archivespace invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'http://archives.lib.umn.edu/search?q=darwin');
+  tester.invalidScopeArgs(t, plugin, 'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=darwin');
 });
 
 test('archivespace uriFor() valid "search" arguments', function (t) {
-  // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'http://archives.lib.umn.edu/search?q=darwin': {
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=darwin': {
       search: 'darwin',
       scope: null,
       field: null,
     },
-    'http://archives.lib.umn.edu/advanced_search?advanced=true&v0=darwin&f0=title': {
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=darwin&field%5B%5D=title': {
       search: 'darwin',
       scope: null,
       field: 'title',
     },
-    'http://archives.lib.umn.edu/search?q=difference+engine&filter_term%5B%5D=%7B%22repository%22%3A%22%2Frepositories%2F3%22%7D': {
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=borlaug&field%5B%5D=creators_text': {
+      search: 'borlaug',
+      scope: null,
+      field: 'author',
+    },
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=hospital&limit=subject': {
+      search: 'hospital',
+      scope: null,
+      field: 'subject',
+    },
+    'http://archives.lib.umn.edu/repositories/3/search?op%5B%5D=&q%5B%5D=difference+engine': {
       search: 'difference engine',
       scope: '3', // CBI
       field: null,
     },
-    'http://archives.lib.umn.edu/advanced_search?advanced=true&v0=minnesota&f0=title&filter_term%5B%5D=%7B%22repository%22%3A%22%2Frepositories%2F15%22%7D': {
+    'http://archives.lib.umn.edu/repositories/15/search?op%5B%5D=&q%5B%5D=minnesota&field%5B%5D=title': {
       search: 'minnesota',
       scope: '15', // UMJA
       field: 'title',
@@ -80,9 +89,14 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
 
   function getResultCount (html) {
     const $ = cheerio.load(html);
-    const divs = $('div.search-results > div.pull-left');
-    const matches = $(divs[0]).text().trim().match(/of (\d+) Results/);
-    const count = matches.pop();
+    const titleText = $('title').text();
+    let count = 0;
+    const matches = titleText.trim().match(/Found (\d+) Results/);
+    if (matches) {
+      count = matches.pop();
+    } else {
+      throw Error('Cannot find a result count');
+    }
     return count;
   }
 
