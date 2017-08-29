@@ -88,6 +88,7 @@ Architecture and Landscape Architecture Library | architecture
 Archives and Special Collections | asc
 Charles Babbage Institute Collection | babbage
 James Ford Bell Library | bell
+Berman Upper Midwest Jewish Archives | berman
 Bio-Medical Library | bio_med
 Children's Literature Research Collection | children
 Twin Cities Catalog | default_scope
