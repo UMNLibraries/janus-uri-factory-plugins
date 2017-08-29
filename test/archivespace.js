@@ -75,12 +75,12 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: 'subject',
     },
-    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=difference+engine&filter_fields%5B%5D=repository&filter_values%5B%5D=%2Frepositories%2F3': {
+    'http://archives.lib.umn.edu/repositories/3/search?op%5B%5D=&q%5B%5D=difference+engine': {
       search: 'difference engine',
       scope: '3', // CBI
       field: null,
     },
-    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=minnesota&field%5B%5D=title&filter_fields%5B%5D=repository&filter_values%5B%5D=%2Frepositories%2F15': {
+    'http://archives.lib.umn.edu/repositories/15/search?op%5B%5D=&q%5B%5D=minnesota&field%5B%5D=title': {
       search: 'minnesota',
       scope: '15', // UMJA
       field: 'title',
