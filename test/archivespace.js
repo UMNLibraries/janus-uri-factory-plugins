@@ -80,16 +80,10 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
   function getResultCount (html) {
     const $ = cheerio.load(html);
     const titleText = $('title').text();
-    //console.warn(titleText);
-    const divs = $('div.alert.alert-info.alert-dismissible'); 
-    //console.warn(divs[0]);
-
     let count = 0;
-    if (titleText.match(/Found \d+ Results/)) {
-      const matches = titleText.trim().match(/Found (\d+) Results/);
+    const matches = titleText.trim().match(/Found (\d+) Results/);
+    if (matches) {
       count = matches.pop();
-    } else if ($('div.alert.alert-info.alert-dismissible').text().trim() == 'No Records Found') {
-      count = 0;
     } else {
       throw Error('Cannot find a result count');
     }
