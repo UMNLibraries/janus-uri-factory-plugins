@@ -65,6 +65,11 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: 'title',
     },
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=borlaug&field%5B%5D=creators_text': {
+      search: 'borlaug',
+      scope: null,
+      field: 'author',
+    },
     'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=hospital&limit=subject': {
       search: 'hospital',
       scope: null,
