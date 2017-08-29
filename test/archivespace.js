@@ -65,6 +65,11 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: 'title',
     },
+    'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=hospital&limit=subject': {
+      search: 'hospital',
+      scope: null,
+      field: 'subject',
+    },
     'http://archives.lib.umn.edu/search?op%5B%5D=&q%5B%5D=difference+engine&filter_fields%5B%5D=repository&filter_values%5B%5D=%2Frepositories%2F3': {
       search: 'difference engine',
       scope: '3', // CBI
