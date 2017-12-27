@@ -37,6 +37,12 @@ test('mncatdiscovery uriFor() missing "search" arguments', function (t) {
       scope: 'plant_pathology',
       field: 'title',
     },
+    '"scope", "field", and "format" arguments have truthy values': {
+      search: 0,
+      scope: 'plant_pathology',
+      field: 'title',
+      format: 'books'
+    },
   };
   tester.missingSearchArgs(t, plugin, testCases);
 });
