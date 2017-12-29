@@ -78,6 +78,18 @@ test('mncatdiscovery uriFor() valid "search" arguments', function (t) {
       scope: 'givens',
       field: 'title',
     },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man&facet=rtype%2Cexact%2Cbooks': {
+      search: 'invisible man',
+      scope: 'givens',
+      field: 'title',
+      format: 'books',
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Caudio': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'audio',
+    },
   };
 
   function getResultCount (html) {
