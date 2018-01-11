@@ -6,7 +6,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 ## Contents
 
-- [Scopes and Formats](#scopes)
+- [Scopes and Formats](#scopes-and-formats)
 	- [ArchiveSpace](#archivespace)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
@@ -19,7 +19,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [Integration Tests](#integration-tests)
 - [Lint](#lint)
 
-## Scopes
+## Scopes and Formats
 
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
 
