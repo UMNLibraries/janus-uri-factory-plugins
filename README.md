@@ -6,7 +6,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 ## Contents
 
-- [Scopes](#scopes)
+- [Scopes and Formats](#scopes)
 	- [ArchiveSpace](#archivespace)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
@@ -22,6 +22,9 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 ## Scopes
 
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
+
+Plugins may also define a list of valid `format` values, implemented only by
+MncatDiscovery.
 
 ### ArchiveSpace
 
@@ -77,6 +80,7 @@ UMN Libraries Main Website | main
 UMN Health Sciences Libraries Website | hsl
 
 ### MncatDiscovery
+#### MncatDiscovery Scopes
 
 Name/Description | Value
 -----------------|------
@@ -121,6 +125,18 @@ Wilson Library | wilson
 John R. Borchert Map Library | wilson_map
 Wilson Library Rare Books | wilson_rare
 YMCA Archives | ymca
+
+#### MncatDiscovery Formats
+
+Name/Description | Value
+-----------------|------
+Archival/MSS Mtls | archive
+Audio | audio
+Books | books
+Journals | journals
+Maps | maps
+Scores | scores
+Video | video
 
 
 ### PubMed
