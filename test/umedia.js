@@ -5,11 +5,11 @@ const plugin = require('../').umedia();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('umedia baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://umedia.lib.umn.edu/dasearch');
+  tester.baseUri(t, plugin, 'https://umedia.lib.umn.edu/search');
 });
 
 test('umedia emptySearch()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://umedia.lib.umn.edu/dasearch');
+  tester.emptySearchUri(t, plugin, 'https://umedia.lib.umn.edu/search');
 });
 
 test('umedia uriFor() missing "search" arguments', function (t) {
@@ -27,64 +27,49 @@ test('umedia uriFor() missing "search" arguments', function (t) {
     },
     'only "scope" argument has a truthy value': {
       search: false,
-      scope: '69339', // John R. Borchert Map Library
+      scope: 'borchert', // John R. Borchert Map Library
       field: null,
     },
     'both "scope" and "field" arguments have truthy values': {
       search: 0,
-      scope: '69339', // John R. Borchert Map Library
-      field: 'title',
+      scope: 'borchert', // John R. Borchert Map Library
+      field: 'subject',
     },
   };
   tester.missingSearchArgs(t, plugin, testCases);
 });
 
 test('umedia invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://umedia.lib.umn.edu/dasearch/darwin');
+  tester.invalidFieldArgs(t, plugin, 'https://umedia.lib.umn.edu/search');
 });
 
 test('umedia invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'https://umedia.lib.umn.edu/dasearch/darwin');
+  tester.invalidScopeArgs(t, plugin, 'https://umedia.lib.umn.edu/search?q=darwin');
 });
 
 test('umedia uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://umedia.lib.umn.edu/dasearch/darwin': {
+    'https://umedia.lib.umn.edu/search?q=darwin': {
       search: 'darwin',
       scope: null,
       field: null,
     },
-    'https://umedia.lib.umn.edu/dasearch/subject:%28darwin%29': {
+    'https://umedia.lib.umn.edu/search?facets%5Bsubject_ss%5D%5B%5D=darwin': {
       search: 'darwin',
       scope: null,
       field: 'subject',
     },
-    'https://umedia.lib.umn.edu/dasearch/%28im_og_gid:69339%20AND%20%28darwin%29%29': {
+    'https://umedia.lib.umn.edu/search?q=darwin&facets%5Bcontributing_organization_name_s%5D%5B%5D=University+of+Minnesota+Libraries%2C+John+R.+Borchert+Map+Library.': {
       search: 'darwin',
-      scope: '69339', // John R. Borchert Map Library
+      scope: 'borchert', // John R. Borchert Map Library
       field: null,
     },
-    'https://umedia.lib.umn.edu/dasearch/%28tid:871%20AND%20%28urdu%20poetry%29%29': {
-      search: 'urdu poetry',
-      scope: 'tid:871', // Classical Urdu Poetry taxonomy term within Ames Library of South Asia collection.
-      field: null,
-    },
-    'https://umedia.lib.umn.edu/dasearch/%28im_og_gid:69339%20AND%20%28darwin%20glacier%29%29': {
-      search: 'darwin glacier',
-      scope: 'im_og_gid:69339', // John R. Borchert Map Library, including the Drupal group ID prefix in the param value.
-      field: null,
-    },
-    'https://umedia.lib.umn.edu/dasearch/%28im_og_gid:69339%20AND%20titles:%28darwin%29%29': {
-      search: 'darwin',
-      scope: '69339', // John R. Borchert Map Library
-      field: 'title',
-    },
-    'https://umedia.lib.umn.edu/dasearch/%28tid:871%20AND%20titles:%28urdu%20poetry%29%29': {
-      search: 'urdu poetry',
-      scope: 'tid:871', // Classical Urdu Poetry taxonomy term within Ames Library of South Asia collection.
-      field: 'title',
-    },
+    // 'title field not implemented': {
+    //   search: 'darwin',
+    //   scope: 'borchert', // John R. Borchert Map Library
+    //   field: 'title',
+    // },
   };
 
   function getResultCount (html) {
