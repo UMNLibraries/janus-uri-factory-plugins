@@ -1,7 +1,7 @@
 'use strict';
 const test = require('tape');
 const cheerio = require('cheerio');
-const plugin = require('../').umedia();
+const plugin = require('../').umediacollection();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
 test('umedia baseUri()', function (t) {
@@ -20,19 +20,9 @@ test('umedia uriFor() missing "search" arguments', function (t) {
       scope: null,
       field: null,
     },
-    'only "subject" argument has a truthy value': {
+    'only "field" argument has a truthy value': {
       search: '',
       scope: null,
-      field: 'subject',
-    },
-    'only "scope" argument has a truthy value': {
-      search: false,
-      scope: 'borchert', // John R. Borchert Map Library
-      field: null,
-    },
-    'both "scope" and "field" arguments have truthy values': {
-      search: 0,
-      scope: 'borchert', // John R. Borchert Map Library
       field: 'subject',
     },
   };
@@ -40,7 +30,7 @@ test('umedia uriFor() missing "search" arguments', function (t) {
 });
 
 test('umedia invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://umedia.lib.umn.edu/search');
+  tester.invalidFieldArgs(t, plugin, 'https://umedia.lib.umn.edu/search?q=darwin');
 });
 
 test('umedia invalid scope args', function (t) {
@@ -55,21 +45,16 @@ test('umedia uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: null,
     },
-    'https://umedia.lib.umn.edu/search?facets%5Bsubject_ss%5D%5B%5D=darwin': {
+    'https://umedia.lib.umn.edu/search?q=darwin&facets%5Bcollection_name_s%5D%5B%5D=Classical+Urdu+Poetry': {
       search: 'darwin',
-      scope: null,
-      field: 'subject',
-    },
-    'https://umedia.lib.umn.edu/search?q=darwin&facets%5Bcontributing_organization_name_s%5D%5B%5D=University+of+Minnesota+Libraries%2C+John+R.+Borchert+Map+Library.': {
-      search: 'darwin',
-      scope: 'borchert', // John R. Borchert Map Library
+      scope: 'Classical Urdu Poetry',
       field: null,
     },
-    // 'title field not implemented': {
-    //   search: 'darwin',
-    //   scope: 'borchert', // John R. Borchert Map Library
-    //   field: 'title',
-    // },
+    'https://umedia.lib.umn.edu/search?facets%5Bcollection_name_s%5D%5B%5D=Classical+Urdu+Poetry': {
+      search: null,
+      scope: 'Classical Urdu Poetry',
+      field: null,
+    },
   };
 
   function getResultCount (html) {
