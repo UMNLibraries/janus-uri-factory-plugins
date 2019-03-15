@@ -71,7 +71,7 @@ Articles and Scholarly Works          | https://conservancy.umn.edu/handle/11299
 ### GoogleSearchAppliance
 
 Because the Google Search Appliance can be used to search many UMN websites, this
-plugin requires a scope, which specifies which website to search. If scope is 
+plugin requires a scope, which specifies which website to search. If scope is
 missing, it will default to `main`.
 
 Description | Value
@@ -144,310 +144,80 @@ Video | video
 The PubMed search engine does not use scopes.
 
 ### UMedia
+Alias of `umediaorganization`
 
-We now support both collections, implemented with Drupal Organic Groups, and
-sub-collections, implemented with Drupal Taxonomy terms. In the table below,
-collection names are highlighted, to make them easier to find and to help
-distinguish them from their sub-collections.
+### UMedia Organization
+Scope UMedia search results by Contributing Organization facet. Contributing
+Organizations are valiated against this list, and provided with an abbreviated
+name for convenience.
+Currently available Contributing Organizations are listed at
+https://umedia.lib.umn.edu/facets?facet_field=contributing_organization_name_s&facet_limit=500&facet_sort=index
 
-**Deprecation Notice**: Notice that collection scope values all include a
-`im_og_gid:` prefix (og_gid refers to Drupal Organic Groups group ID), while
-sub-collection scope values all include a `tid:` prefix (tid refers to Drupal
-Taxonomy term ID). Previously we supported only collection IDs, and excluded 
-the `im_og_gid:` prefixes. For backward-compatibility, any scopes without a
-prefix will be assumed to be collection IDs. However, this functionality is
-deprecated and will disappear in a future version. All new search forms should
-use prefixed scopes, and all old search forms should be updated to use them.
+#### Sample Usage:
+```
+# Search for "maps" within United States Geological Survey contributions
+/janus?target=umediaorganization&scope=usgs&search=maps
+```
 
-Name/Description | Value
------------------|-------
-**All Collections** | im_og_gid:0
-**Ames Library of South Asia** | im_og_gid:3588
-Classical Urdu Poetry | tid:871
-General Collection | tid:690
-Introduction to Punjabi | tid:869
-Introduction to Pushto | tid:870
-Journal of Indian Art | tid:799
-Stereoscopic Images of India | tid:768
-**Andersen Horticultural Library** | im_og_gid:88869
-Agnes Williams Collection | tid:915
-Emma Roberts Collection | tid:914
-Minneapolis Seedswomen Catalogs | tid:760
-Minnesota Seed and Nursery Catalogs | tid:940
-Vintage Seed and Nursery Catalog Covers | tid:840
-**Bell Museum of Natural History** | im_og_gid:4760
-Francis Lee Jaques Collection | tid:692
-General Collection | tid:742
-**Botanical Images** | im_og_gid:69341
-Botanical Images from the Collections of the University Libraries | tid:693
-**Business Library** | im_og_gid:88870
-Historical Annual Reports | tid:761
-**Center for Holocaust and Genocide Studies** | im_og_gid:949530
-Artifact Collection | tid:939
-Betty Mittleman: Silence is Golden | tid:941
-Betty Mittleman: Silence is Golden and the Warsaw Ghetto Series | tid:923
-Felix de la Concha: Portraying Memories: Portraits &amp; Conversations with Survivors of the Shoah | tid:922
-Fritz Hirschberger: The Fifth Horseman | tid:917
-Fritz Hirschberger: The Sur-Rational Holocaust Paintings | tid:916
-Jordan Krimstein: Water Colors of Auschwitz | tid:921
-Life Under Nazism | tid:938
-Lucien Philippe Moretti: “Un sac de Billes” Lithographs | tid:919
-Maxine Rude: Displaced Europe 1945-1946 | tid:918
-Oscar Arredondo: Welcome to Cleveland, Home of the… | tid:920
-**Charles Babbage Institute** | im_og_gid:781
-Association for Computing Machinery | tid:771
-Burroughs Corporation | tid:694
-Control Data Corporation | tid:695
-Fragile Publications | tid:744
-Oral History Collections | tid:743
-The COOK Report on Internet | tid:930
-**Children's Literature Research Collections** | im_og_gid:88871
-Beadle's Weekly | tid:762
-Hess Collection | tid:881
-Kerlan Collection Artwork | tid:872
-Kerlan Collection Manuscripts | tid:873
-Pulp Novel Covers | tid:882
-The Illustrated Police News | tid:883
-The Oz Collection | tid:800
-**Department of American Indian Studies** | im_og_gid:271097
-Image Collection | tid:805
-**Department of Psychology** | im_og_gid:988559
-Philosophical Psychology Lectures | tid:932
-**East Asian Library** | im_og_gid:69340
-Manzanar Free Press | tid:745
-Ming Gazetteer Images | tid:725
-**Entomology, Fisheries and Wildlife Library** | im_og_gid:68641
-**First Flights** | im_og_gid:69342
-High Altitude Plastic Balloon Project | tid:726
-Images of Ballooning from the Piccard, Scholl, and Winzen Collections | tid:727
-**Givens Collection of African American Literature** | im_og_gid:5299
-African American Literature | tid:696
-E. Ethelbert Miller Collection | tid:868
-Federal Writers' Project Narratives by Formerly Enslaved Peoples Collection | tid:942
-Givens Collection Ephemera | tid:864
-Givens Collection Pamphlets | tid:865
-Givens Collection Playbills and Programs | tid:866
-Lou Bellamy Rare Book Collection | tid:863
-Penumbra Theatre Company Records | tid:862
-Penumbra Theatre Playbills | tid:801
-Sara Roberson Collection | tid:867
-**Humphrey School of Public Affairs** | im_og_gid:700489
-Audio Collection | tid:835
-Video Collection | tid:834
-**Immigration History Research Center Archives** | im_og_gid:5494
-Arab American Collection | tid:697
-Armenian American Collection | tid:698
-Belarusan American Collection | tid:699
-Carpatho-Rusin American Collection | tid:929
-Croatian American Collection | tid:700
-Czech/Bohemian American Collection | tid:600
-Daughters of Penelope Oral History Project | tid:927
-Digitizing Immigrant Letters | tid:688
-E Aletheia (Newspaper) | tid:899
-Estonian American Collection | tid:701
-Finnish American Collection | tid:724
-Foundational Collection of Immigration Oral Histories | tid:824
-General Collection | tid:702
-Greek American Collection | tid:703
-Hugo Skrastins Papers | tid:748
-Hungarian American Collection | tid:704
-Il Grido Del Popolo (Newspaper) | tid:937
-Il Messaggero (Newspaper) | tid:907
-Il Nuovo Vessillo (Newspaper) | tid:900
-Il Paese (Newspaper) | tid:901
-Italian American Collection | tid:705
-Italians in Duluth Oral History Project | tid:926
-La Stampa Liebera (Newspaper) | tid:905
-Latvian American Collection | tid:706
-Nomotages (Newspaper) | tid:904
-O Scugnizzo (Newspaper) | tid:903
-Polish American Collection | tid:707
-Rev. Kenneth Dexter Miller Papers, 1887-1968 | tid:746
-Roma (Newspaper) | tid:902
-Romanian American Collection | tid:708
-Slovak American Collection | tid:709
-Slovenian American Collection | tid:710
-Twin Cities Ukrainian Folk Ballet and Chorus Collection | tid:811
-Ukrainian American Collection | tid:711
-Uusi Kotimaa (Newspaper) | tid:906
-Vita Nuova (Newspaper) | tid:933
-Zdenka Rypka Papers | tid:747
-**Institute for Advanced Study** | im_og_gid:700472
-Bat of Minerva | tid:839
-IAS Programming | tid:841
-Intellectual and Cultural Leaders of Minnesota | tid:858
-Small-scale Food Initiatives in Southwest Minnesota | tid:845
-**Institute for Mathematics and its Applications** | im_og_gid:946949
-Video Collection | tid:895
-**James Ford Bell Library** | im_og_gid:88351
-Atlantic World Collection | tid:925
-Historical Map Project | tid:892
-Historical Maps | tid:712
-Images Collection | tid:795
-John Gabriel Stedman Archive and Book Manuscript | tid:826
-Spanish American Political Texts | tid:818
-**Jean-Nickolaus Tretter Collection in GLBT Studies** | im_og_gid:88868
-AIDS Poster Collection | tid:750
-GAZE TV Collection | tid:931
-GLBT Pride Poster Collection | tid:751
-**John R. Borchert Map Library** | im_og_gid:69339
-Ames Library of South Asia Maps | tid:830
-City Maps | tid:815
-General Map Collection | tid:831
-General Minnesota Maps | tid:713
-Historical Atlases | tid:913
-Minneapolis / St. Paul Maps &amp; Atlases | tid:833
-Minnesota County Maps, Plat Books and Atlases | tid:749
-Minnesota Transportation Maps | tid:877
-United States Geological Survey Polar Maps | tid:891
-**Kautz Family YMCA Archives** | im_og_gid:21602
-Emma Young Dickson Papers | tid:820
-Foreign Secretary Reports from China | tid:759
-Image Collection | tid:714
-New York YMCA Annual Reports | tid:836
-Records of YMCA International work in China, 1890-1991 | tid:934
-Records of YMCA International Work in Palestine and Israel | tid:928
-Trench and Camp Newspaper | tid:758
-Video and Audio Collection | tid:770
-YMCA of the USA Yearbooks and Directories, 1854-2002 | tid:757
-**Learning Resources Center** | im_og_gid:11644
-Chinese Opera Performances | tid:715
-EngL 1301W Introduction to Multicultural American Literature | tid:793
-EngL 3001W Textual Interpretation, Analysis, and Investigation | tid:785
-EngL 3003W Historical Survey of British Literatures I | tid:784
-EngL 3007 Shakespeare: Rehearsing the Imagination | tid:790
-EngW 3102 Intermediate Fiction Writing: The Short Story | tid:783
-EngW 5606 / Jour 5606W Literary Aspects of Journalism | tid:791
-Independent and Distance Learning | tid:732
-Mus 1001 Fundamentals of Music | tid:792
-PubH 3040 Dying and Death in Contemporary Society | tid:786
-South Asia Language Archive | tid:731
-**Literary Manuscripts Collections** | im_og_gid:88967
-**Magrath Library** | im_og_gid:88872
-Minnesota Rivers, United States Parks Service | tid:812
-Minnesota Soil Survey Collection | tid:763
-Mountain Plover Research Collection | tid:924
-**Minnesota Agricultural Experiment Station** | im_og_gid:1229
-Image Collection | tid:728
-**Minnesota Geological Survey** | im_og_gid:88873
-Minnesota Geological Survey Maps | tid:764
-**Music Library** | im_og_gid:88874
-Hymnal and Tune Book Collection | tid:765
-**Nathan and Theresa Berman Upper Midwest Jewish Archives** | im_og_gid:752030
-Adath Jeshurun Congregation Records, 1884-2014 | tid:861
-Frank and Arthur Eisenberg Papers | tid:847
-Hillel of the University of Minnesota Records | tid:896
-Jack Pink Papers | tid:878
-Mount Zion Temple Oral History records | tid:880
-Sharron and Oren Steinfeldt Photography Collection | tid:856
-Sidney Cohen Papers | tid:879
-Temple Israel Records, 1880-2014 | tid:911
-Urban Exodus: The St. Louis Park Oral History Project records, 2011-2012 | tid:935
-**Northwest Architectural Archives** | im_og_gid:11943
-American Terra Cotta Company | tid:716
-Edwin H. Lundie Papers | tid:796
-Ellerbe Architects Papers Collection | tid:779
-Forecast Public Art Archives | tid:809
-John H. Howe Papers | tid:717
-Larson and McLaren Papers | tid:817
-Leroy S. Buffington Papers | tid:718
-Liebenberg and Kaplan Papers | tid:780
-Minneapolis Architecture 1848-1908 | tid:719
-Pioneer-Endicott Building Plans | tid:885
-Toltz, King and Day Papers | tid:782
-William Channing Whitney Collection | tid:816
-William Gray Purcell Papers | tid:720
-**Performing Arts Archives** | im_og_gid:13949
-Ballet Arts Minnesota Records | tid:898
-Guthrie Theater Archives | tid:804
-James Sewell Ballet Records | tid:837
-John Munger Papers | tid:889
-Judith Brin Ingber Papers | tid:890
-Katherine Goodale Publications | tid:908
-Minnesota Dance Alliance Records | tid:909
-Minnesota Dance Pioneer Oral History Project | tid:825
-Minnesota Dance Theatre Records | tid:838
-Minnesota Orchestra | tid:721
-Nancy Hauser Dance Company Records | tid:887
-Performing Arts Publications Collection | tid:888
-Scenic Collections | tid:730
-Stephen Rueff Papers | tid:886
-**Polar Geospatial Center** | im_og_gid:895347
-United States Geological Survey - Polar Maps Collection | tid:876
-**School of Journalism and Mass Communication** | im_og_gid:11433
-Image Collection | tid:722
-**School of Public Health** | im_og_gid:271239
-James A. Hamilton Collection | tid:807
-**Social Welfare History Archives** | im_og_gid:100
-The Job is Never Done: 50 Years of Documenting Social Welfare History | tid:884
-Addict in the Street | tid:753
-American Social Health Association Records 1905-1990 | tid:723
-Minneapolis YWCA Records | tid:910
-National Conference of Social Work Portraits | tid:802
-Social Work Yearbooks, 1929-1960 | tid:754
-**Special Collections and Rare Books** | im_og_gid:88856
-Arthur Kleiner Collection | tid:772
-Cuneiform Inscriptions | tid:794
-Eugene J. McCarthy Collection | tid:734
-Fifty Original Leave from Medieval Manuscripts - Otto Ege Collection | tid:735
-Friedrich Wachtsmuth Archive, 1929-1938 | tid:752
-Individual Medieval Manuscript Leaves | tid:736
-Joseph S. Mertle Collection on the History of Photomechanics | tid:781
-Papyri and Ostraka Collection | tid:738
-Photochrom Collection | tid:852
-Placeholder | tid:893
-Postcard Collection | tid:739
-Rare Books and Manuscripts | tid:806
-Sherlock Holmes Collections | tid:740
-**University of Minnesota Archives** | im_og_gid:15575
-Bell Museum of Natural History Negatives, 1898-1940s | tid:859
-Bell Museum of Natural History Records, 1849-2006 | tid:860
-Campus Maps and Blueprints | tid:756
-Cass Gilbert Collection - Campus Plans | tid:755
-Cereal Rust Laboratory Records, 1823, 1946-2007 | tid:798
-Christopher Webber Hall papers, 1880-1906 | tid:855
-Department of Botany Print Photograph Collection, 1898-1903 | tid:848
-Department of Botany Records, 1893-1989 | tid:874
-Department of Geology and Mineralogy Records, 1915-1960 | tid:854
-Department of Plant Pathology and Physiology Records, 1918-2007 | tid:773
-Elvin C. Stakman papers, 1918-1973 | tid:776
-Helen Hart Papers, 1917-1953 | tid:774
-Henry Francis Nachtrieb papers, 1886-1929 | tid:853
-Inventory of the Christopher Webber Hall papers, 1880-1906 | tid:851
-Inventory of the Minnesota Geological and Natural History Survey papers, 1872-1906 | tid:842
-John Gibler Papers, 1890-2006 | tid:777
-Junior F. Hayden Botanical Photograph Collection | tid:823
-Minnesota Geological Survey Field Notebooks, 1877-1990 | tid:844
-Minnesota Geological Survey Papers, 1912-1978 | tid:846
-Moses Barron Papers, 1911-1978 | tid:803
-Ned L. Huff Lantern Slide Collection, 1900-1952 | tid:857
-Newton Horace Winchell Papers, 1872-1908 | tid:843
-Norman E. Borlaug Papers, 1930-2006 | tid:775
-Photograph Collection | tid:622
-Richard Maurice Elliott Papers | tid:943
-Stephen Farnum Peckham Papers, 1874-1880 | tid:850
-University of Minnesota Gopher Yearbooks | tid:819
-Video and Audio Collection | tid:684
-**University of Minnesota Extension Service** | im_og_gid:5040
-Image Collection | tid:729
-**University of Minnesota Law Library** | im_og_gid:271243
-Photograph Collection | tid:808
-**Wangensteen Historical Library of Biology and Medicine** | im_og_gid:88875
-Clara Barton Diaries | tid:894
-History and Development of Caesarean Section, Dr. Robert Patterson Harris (1822-1899) | tid:821
-James H. Stuart Letters | tid:822
-Medical Receipt Books | tid:766
-**War Posters and Postcards** | im_og_gid:22163
-Propagnada | tid:525
-Rationing and conservation | tid:497
-Recreation | tid:514
-Religion | tid:521
-Views | tid:527
-War finance | tid:493
-War Posters and Postcards | tid:494
-Wochenspruch | tid:509
-**Wilson Library** | im_og_gid:88876
-Journal Humoristique | tid:767
+Name | Value
+-----|-------
+Donald Clay Johnson | djohnson
+Hennepin County Library, James K. Hosmer Special Collections. | hosmer
+Joanne B. Eicher | eichner
+Timothy J. Johnson | tjohnson
+United States Geological Survey | usgs
+University of Minnesota Extensions. | umnext
+University of Minnesota Law Library, Riesenfeld Rare Books Research Center. | riesenfeld
+University of Minnesota Libraries, Ames Library of South Asia. | ames
+University of Minnesota Libraries, Andersen Horticultural Library. | andersen
+University of Minnesota Libraries, Archie Givens, Sr. Collection of African American Literature. | givens
+University of Minnesota Libraries, Business Library. | umnbus
+University of Minnesota Libraries, Charles Babbage Institute. | babbage
+University of Minnesota Libraries, Children\'s Literature Research Collections. | clrc
+University of Minnesota Libraries, East Asian Library. | eastasian
+University of Minnesota Libraries, Immigration History Research Center Archives. | ihrca
+University of Minnesota Libraries, James Ford Bell Library. | bell
+University of Minnesota Libraries, Jean-Nickolaus Tretter Collection in Gay, Lesbian, Bisexual and Transgender Studies. | tretter
+University of Minnesota Libraries, John R. Borchert Map Library. | borchert
+University of Minnesota Libraries, Kautz Family YMCA Archives. | ymca
+University of Minnesota Libraries, Magrath Library. | magrath
+University of Minnesota Libraries, Music Library. | music
+University of Minnesota Libraries, Nathan and Theresa Berman Upper Midwest Jewish Archives. | umja
+University of Minnesota Libraries, Northwest Architectural Archives. | naa
+University of Minnesota Libraries, Owen H. Wangensteen Historical Library of Biology and Medicine. | wangensteen
+University of Minnesota Libraries, Performing Arts Archives. | paa
+University of Minnesota Libraries, Rare Books and Special Collections. | rare
+University of Minnesota Libraries, Social Welfare History Archives. | swha
+University of Minnesota Libraries, Special Collections and Rare Books. | scrbm
+University of Minnesota Libraries, University Archives. | uarch
+University of Minnesota Libraries, Upper Midwest Literary Archives. | mss
+University of Minnesota Libraries, Wilson Library. | wilson
+University of Minnesota Libraries. Library Media Services. | lms
+University of Minnesota Press Test Division. | upress
+University of Minnesota, Bell Museum. | bellmuseum
+University of Minnesota, Center for Holocaust and Genocide Studies. | chgs
+University of Minnesota, Department of American Indian Studies. | umnais
+University of Minnesota, Department of Psychology. | umnpsych
+University of Minnesota, Horticultural Research Center. | hrc
+University of Minnesota, Institute for Advanced Study. | advanced
+University of Minnesota, Institute for Mathematics and its Applications. | umnima
+University of Minnesota, Minnesota Agricultural Experiment Station. | agex
+University of Minnesota, Minnesota Institute for Sustainable Agriculture (MISA). | misa
+University of Minnesota, School of Physics and Astronomy. | physics
+University of Minnesota, School of Public Health. | pubhealth
+
+### UMedia Collection
+Scope UMedia search results by Collection name. Hundreds of collections are
+available and the list is too fluid to validate. Scope values will be accepted
+and passed to UMedia as a facet.
+Currently available collections usable as `scope` values are listed at
+https://umedia.lib.umn.edu/facets?facet_field=collection_name_s&facet_limit=500&facet_sort=index
+
+#### Sample Usage:
+```
+# Search for "arboretum" within the Cloquet Forestry Center Records collection
+/janus?target=umediacollection=Cloquet+Forestry+Center+Records&scope=usgs&search=arboretum
+```
 
 ## Install
 
