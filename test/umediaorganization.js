@@ -64,8 +64,8 @@ test('umedia uriFor() valid "search" arguments', function (t) {
 
   function getResultCount (html) {
     const $ = cheerio.load(html);
-    const divs = $('div.dasset_search_summary');
-    const matches = $(divs[0]).text().trim().match(/(\d+) items found/);
+    const divs = $('span.pager-info');
+    const matches = $(divs[0]).text().trim().match(/(\d+) results/);
     const count = matches.pop();
     return count;
   }
