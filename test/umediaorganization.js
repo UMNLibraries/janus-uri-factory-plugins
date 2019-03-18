@@ -64,8 +64,9 @@ test('umedia uriFor() valid "search" arguments', function (t) {
 
   function getResultCount (html) {
     const $ = cheerio.load(html);
-    const divs = $('span.pager-info');
-    const matches = $(divs[0]).text().trim().match(/(\d+) results/);
+    const spans = $('span.pager-info');
+    // Collapse whiespace, newlines to match "123 result/results"
+    const matches = $(spans).text().trim().replace(/\s+/g, ' ').match(/(\d+) result/);
     const count = matches.pop();
     return count;
   }

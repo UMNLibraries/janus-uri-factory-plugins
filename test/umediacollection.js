@@ -45,8 +45,8 @@ test('umedia uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: null,
     },
-    'https://umedia.lib.umn.edu/search?q=darwin&facets%5Bcollection_name_s%5D%5B%5D=Classical+Urdu+Poetry': {
-      search: 'darwin',
+    'https://umedia.lib.umn.edu/search?q=poetry&facets%5Bcollection_name_s%5D%5B%5D=Classical+Urdu+Poetry': {
+      search: 'poetry',
       scope: 'Classical Urdu Poetry',
       field: null,
     },
@@ -59,8 +59,9 @@ test('umedia uriFor() valid "search" arguments', function (t) {
 
   function getResultCount (html) {
     const $ = cheerio.load(html);
-    const divs = $('span.pager-info');
-    const matches = $(divs[0]).text().trim().match(/(\d+) results/);
+    const spans = $('span.pager-info');
+    // Collapse whiespace, newlines to match "123 result/results"
+    const matches = $(spans).text().trim().replace(/\s+/g, ' ').match(/(\d+) result/);
     const count = matches.pop();
     return count;
   }
