@@ -1,20 +1,20 @@
 'use strict';
 const test = require('tape');
 // const cheerio = require('cheerio');
-const plugin = require('../').primoui();
+const plugin = require('../').primo();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-test('primoui baseUri()', function (t) {
+test('primo baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US');
 });
 
-test('primoui emptySearchUri()', function (t) {
+test('primo emptySearchUri()', function (t) {
   tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US');
 });
 
-test('primoui uriFor() missing "search" arguments', function (t) {
+test('primo uriFor() missing "search" arguments', function (t) {
   // testCases map state descriptions to uriFor arguments
   const testCases = {
     'all arguments are null': {
@@ -47,15 +47,15 @@ test('primoui uriFor() missing "search" arguments', function (t) {
   tester.missingSearchArgs(t, plugin, testCases);
 });
 
-test('primoui invalid field args', function (t) {
+test('primo invalid field args', function (t) {
   tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
 });
 
-test('primoui invalid scope args', function (t) {
+test('primo invalid scope args', function (t) {
   tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin');
 });
 
-test('primoui uriFor() valid "search" arguments', function (t) {
+test('primo uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
     'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin': {

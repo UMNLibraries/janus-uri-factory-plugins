@@ -10,7 +10,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [ArchiveSpace](#archivespace)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
-	- [PrimoUI](#primoui)
+	- [Primo](#primo)
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
 	- [Conservancy](#conservancy)
@@ -25,7 +25,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
 
 Plugins may also define a list of valid `format` values, implemented only by
-PrimoUI.
+Primo.
 
 ### ArchiveSpace
 
@@ -81,10 +81,10 @@ UMN Libraries Main Website | main
 UMN Health Sciences Libraries Website | hsl
 
 ### MncatDiscovery
-Alias of [PrimoUI](#primoui).
+Alias of [Primo](#primo).
 
-### Primo UI
-#### PrimoUI Scopes
+### Primo
+#### Primo Scopes
 
 Name/Description | Value
 -----------------|------
@@ -130,7 +130,7 @@ John R. Borchert Map Library | wilson_map
 Wilson Library Rare Books | wilson_rare
 YMCA Archives | ymca
 
-#### PrimoUI Formats
+#### Primo Formats
 
 Name/Description | Value
 -----------------|------
