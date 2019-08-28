@@ -45,12 +45,11 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
   };
 
   function getResultCount (html) {
-    //const $ = cheerio.load(html);
-    //const elem = $('#resInfo-1');
-    //// Displays like "About 1,294 results", strip out the comma
-    //const matches = $(elem[0]).text().trim().replace(/,/, '').match(/About (\d+) sorted/);
-    //const count = matches[1];
-    //return parseInt(count, 10);
+    // const elem = $('#resInfo-1');
+    // // Displays like "About 1,294 results", strip out the comma
+    // const matches = $(elem[0]).text().trim().replace(/,/, '').match(/About (\d+) sorted/);
+    // const count = matches[1];
+    // return parseInt(count, 10);
 
     // Our /search endpoint loads Google code that does search via XHR
     // and returns to build results via JS. Current test runner
