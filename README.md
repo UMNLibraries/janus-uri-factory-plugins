@@ -8,7 +8,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 - [Scopes and Formats](#scopes-and-formats)
 	- [ArchiveSpace](#archivespace)
-	- [GoogleSearchAppliance](#googlesearchappliance)
+	- [GoogleCustomSearch](#googlecustomsearch)
 	- [MncatDiscovery](#mncatdiscovery)
 	- [Primo](#primo)
 	- [PubMed](#pubmed)
@@ -69,16 +69,11 @@ Name/Description                      | Collection URL                          
 University of Minnesota - Twin Cities | https://conservancy.umn.edu/handle/11299/1      | 1
 Articles and Scholarly Works          | https://conservancy.umn.edu/handle/11299/169792 | 169792
 
-### GoogleSearchAppliance
+### Google Custom Search
+Performs a search via the Google Custom Search endpoint configured at
+https://www.lib.umn.edu/search.
 
-Because the Google Search Appliance can be used to search many UMN websites, this
-plugin requires a scope, which specifies which website to search. If scope is
-missing, it will default to `main`.
-
-Description | Value
-------|------------
-UMN Libraries Main Website | main
-UMN Health Sciences Libraries Website | hsl
+Google Custom Search has no custom scopes and no fields.
 
 ### MncatDiscovery
 Alias of [Primo](#primo).
