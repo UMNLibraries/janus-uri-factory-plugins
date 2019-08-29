@@ -10,6 +10,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [ArchiveSpace](#archivespace)
 	- [GoogleSearchAppliance](#googlesearchappliance)
 	- [MncatDiscovery](#mncatdiscovery)
+	- [Primo](#primo)
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
 	- [Conservancy](#conservancy)
@@ -24,7 +25,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
 
 Plugins may also define a list of valid `format` values, implemented only by
-MncatDiscovery.
+Primo.
 
 ### ArchiveSpace
 
@@ -80,7 +81,10 @@ UMN Libraries Main Website | main
 UMN Health Sciences Libraries Website | hsl
 
 ### MncatDiscovery
-#### MncatDiscovery Scopes
+Alias of [Primo](#primo).
+
+### Primo
+#### Primo Scopes
 
 Name/Description | Value
 -----------------|------
@@ -106,7 +110,7 @@ Law Library Rare Books | law_rare
 Magrath Library | magrath
 Mathematics Library | math
 Minnesota Library Access Center (MLAC) | mlac
-MNCAT Discovery | mncat_discovery
+Libraries Search | mncat_discovery
 Music Library | music
 Natural Resources Library | natural_resources
 Northwest Architecture Archives | northwest_architecture
@@ -126,7 +130,7 @@ John R. Borchert Map Library | wilson_map
 Wilson Library Rare Books | wilson_rare
 YMCA Archives | ymca
 
-#### MncatDiscovery Formats
+#### Primo Formats
 
 Name/Description | Value
 -----------------|------
