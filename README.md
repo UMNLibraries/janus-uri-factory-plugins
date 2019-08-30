@@ -14,6 +14,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
 	- [Conservancy](#conservancy)
+	- [WorldCat](#worldcat)
 - [Install](#install)
 - [Use](#use)
 - [Test](#test)
@@ -22,7 +23,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 ## Scopes and Formats
 
-Except for Conservancy and PubMed, each plugin defines a list of valid `scope` values.
+Except for Conservancy, PubMed, and WorldCat, each plugin defines a list of valid `scope` values.
 
 Plugins may also define a list of valid `format` values, implemented only by
 Primo.
@@ -217,6 +218,10 @@ https://umedia.lib.umn.edu/facets?facet_field=collection_name_s&facet_limit=500&
 # Search for "arboretum" within the Cloquet Forestry Center Records collection
 /janus?target=umediacollection=Cloquet+Forestry+Center+Records&scope=usgs&search=arboretum
 ```
+
+### WorldCat
+
+The WorldCat search engine does not use scopes.
 
 ## Install
 
