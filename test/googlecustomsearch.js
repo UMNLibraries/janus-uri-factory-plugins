@@ -4,25 +4,25 @@ const cheerio = require('cheerio');
 const plugin = require('../').googlecustomsearch();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
-test('pubmed plugin default scopes', function (t) {
-  t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object');
+test('googlecustomsearch plugin scopes', function (t) {
+  t.deepEqual(plugin.scopes()['hsl'], 'hsl.lib.umn.edu', 'scopes() correctly returns and indexable object');
   t.end();
 });
 
-test('pubmed plugin fields override', function (t) {
+test('googlecustomsearch plugin fields override', function (t) {
   t.deepEqual(plugin.fields(), {}, 'fields correctly overridden with an empty object');
   t.end();
 });
 
-test('pubmed plugin baseUri()', function (t) {
+test('googlecustomsearch plugin baseUri() defaults', function (t) {
   tester.baseUri(t, plugin, 'https://www.lib.umn.edu/search');
 });
 
-test('pubmed plugin emptySearchUri()', function (t) {
+test('googlecustomsearch plugin emptySearchUri()', function (t) {
   tester.emptySearchUri(t, plugin, 'https://www.lib.umn.edu/search');
 });
 
-test('pubmed plugin uriFor() missing "search" arguments', function (t) {
+test('googlecustomsearch plugin uriFor() missing "search" arguments', function (t) {
   // testCases map state descriptions to uriFor() arguments
   const testCases = {
     'all arguments are null': {
@@ -40,6 +40,16 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
     'https://www.lib.umn.edu/search?query=math': {
       search: 'math',
       scope: null,
+      field: null,
+    },
+    'https://www.lib.umn.edu/search?query=wwwmath': {
+      search: 'wwwmath',
+      scope: 'www',
+      field: null,
+    },
+    'https://hsl.lib.umn.edu/search?query=math': {
+      search: 'math',
+      scope: 'hsl',
       field: null,
     },
   };
