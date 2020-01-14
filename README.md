@@ -8,7 +8,8 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 - [Scopes and Formats](#scopes-and-formats)
 	- [ArchiveSpace](#archivespace)
-	- [GoogleCustomSearch](#googlecustomsearch)
+	- [GoogleCustomSearch](#google-custom-search)
+	- [GoogleCustomSearchHSL](#google-custom-search-hsl)
 	- [MncatDiscovery](#mncatdiscovery)
 	- [Primo](#primo)
 	- [PubMed](#pubmed)
@@ -75,6 +76,12 @@ Performs a search via the Google Custom Search endpoint configured at
 https://www.lib.umn.edu/search.
 
 Google Custom Search has no custom scopes and no fields.
+
+### Google Custom Search HSL
+Performs a search via the HSL Google Custom Search endpoint configured at
+https://hsl.lib.umn.edu/search.
+
+Google Custom Search HSL has no custom scopes and no fields.
 
 ### MncatDiscovery
 Alias of [Primo](#primo).
