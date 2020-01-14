@@ -78,7 +78,7 @@ Base site URLs are available as scopes
 
 scope                       | Name/Description | URL
 ----------------------------|--------------------------------|-----------------
-`www` (defaultif unspeficied) | https://www.lib.umn.edu/search | UL www website
+`www` (default if unspeficied) | https://www.lib.umn.edu/search | UL www website
 `hsl`                         | https://hsl.lib.umn.edu/search | HSL website
 
 Google Custom Search has no fields.
