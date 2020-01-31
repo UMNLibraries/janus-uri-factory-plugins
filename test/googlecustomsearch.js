@@ -52,6 +52,11 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
       scope: 'hsl',
       field: null,
     },
+    'https://hsl.lib.umn.edu/search?query=quackery': {
+      search: 'quackery',
+      scope: 'wangensteen',
+      field: null,
+    },
   };
 
   function getResultCount (html) {

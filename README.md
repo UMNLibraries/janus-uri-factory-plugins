@@ -76,10 +76,11 @@ https://www.lib.umn.edu/search or https://hsl.lib.umn.edu/search
 
 Base site URLs are available as scopes
 
-scope                       | Name/Description | URL
-----------------------------|--------------------------------|-----------------
+scope                          | Name/Description               | URL
+-------------------------------|--------------------------------|-----------------
 `www` (default if unspeficied) | https://www.lib.umn.edu/search | UL www website
-`hsl`                         | https://hsl.lib.umn.edu/search | HSL website
+`hsl`                          | https://hsl.lib.umn.edu/search | HSL website
+`wangensteen`                  | https://hsl.lib.umn.edu/search | HSL website (alias)
 
 Google Custom Search has no fields.
 
