@@ -224,7 +224,7 @@ https://umedia.lib.umn.edu/facets?facet_field=collection_name_s&facet_limit=500&
 #### Sample Usage:
 ```
 # Search for "arboretum" within the Cloquet Forestry Center Records collection
-/janus?target=umediacollection=Cloquet+Forestry+Center+Records&scope=usgs&search=arboretum
+/janus?target=umediacollection&scope=Cloquet+Forestry+Center+Records&search=arboretum
 ```
 
 ### WorldCat
