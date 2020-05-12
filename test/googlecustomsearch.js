@@ -1,6 +1,6 @@
 'use strict';
 const test = require('tape');
-const cheerio = require('cheerio');
+// const cheerio = require('cheerio');
 const plugin = require('../').googlecustomsearch();
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
 
