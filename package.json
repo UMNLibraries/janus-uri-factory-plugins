@@ -26,7 +26,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@nihiliad/janus": "^2.0.0",
+    "@nihiliad/janus": "^2.0.1",
     "blue-tape": "^0.2.0",
     "cheerio": "^0.22.0",
     "got": "^11.1.3",
