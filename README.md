@@ -18,9 +18,9 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 - [Install](#install)
 - [Use](#use)
 - [Test](#test)
-        - [Lint](#lint)
-        - [Integration Tests](#integration-tests)
-        - [Unit Tests](#unit-tests)
+	- [Lint](#lint)
+	- [Integration Tests](#integration-tests)
+	- [Unit Tests](#unit-tests)
 
 ## Scopes and Formats
 
