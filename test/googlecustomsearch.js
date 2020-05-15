@@ -1,26 +1,26 @@
-'use strict';
-const test = require('tape');
+'use strict'
+const test = require('tape')
 // const cheerio = require('cheerio');
-const plugin = require('../').googlecustomsearch();
-const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({runIntegrationTests: false});
+const plugin = require('../').googlecustomsearch()
+const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
 test('googlecustomsearch plugin scopes', function (t) {
-  t.deepEqual(plugin.scopes()['hsl'], 'hsl.lib.umn.edu', 'scopes() correctly returns and indexable object');
-  t.end();
-});
+  t.deepEqual(plugin.scopes().hsl, 'hsl.lib.umn.edu', 'scopes() correctly returns and indexable object')
+  t.end()
+})
 
 test('googlecustomsearch plugin fields override', function (t) {
-  t.deepEqual(plugin.fields(), {}, 'fields correctly overridden with an empty object');
-  t.end();
-});
+  t.deepEqual(plugin.fields(), {}, 'fields correctly overridden with an empty object')
+  t.end()
+})
 
 test('googlecustomsearch plugin baseUri() defaults', function (t) {
-  tester.baseUri(t, plugin, 'https://www.lib.umn.edu/search');
-});
+  tester.baseUri(t, plugin, 'https://www.lib.umn.edu/search')
+})
 
 test('googlecustomsearch plugin emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://www.lib.umn.edu/search');
-});
+  tester.emptySearchUri(t, plugin, 'https://www.lib.umn.edu/search')
+})
 
 test('googlecustomsearch plugin uriFor() missing "search" arguments', function (t) {
   // testCases map state descriptions to uriFor() arguments
@@ -28,11 +28,11 @@ test('googlecustomsearch plugin uriFor() missing "search" arguments', function (
     'all arguments are null': {
       search: null,
       scope: null,
-      field: null,
-    },
-  };
-  tester.missingSearchArgs(t, plugin, testCases);
-});
+      field: null
+    }
+  }
+  tester.missingSearchArgs(t, plugin, testCases)
+})
 
 test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t) {
   // testCases map expected uri to uriFor() arguments
@@ -40,24 +40,24 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
     'https://www.lib.umn.edu/search?query=math': {
       search: 'math',
       scope: null,
-      field: null,
+      field: null
     },
     'https://www.lib.umn.edu/search?query=wwwmath': {
       search: 'wwwmath',
       scope: 'www',
-      field: null,
+      field: null
     },
     'https://hsl.lib.umn.edu/search?query=math': {
       search: 'math',
       scope: 'hsl',
-      field: null,
+      field: null
     },
     'https://hsl.lib.umn.edu/search?query=quackery': {
       search: 'quackery',
       scope: 'wangensteen',
-      field: null,
-    },
-  };
+      field: null
+    }
+  }
 
   function getResultCount (html) {
     // const elem = $('#resInfo-1');
@@ -69,8 +69,8 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
     // Our /search endpoint loads Google code that does search via XHR
     // and returns to build results via JS. Current test runner
     // does not support checking this, would need something like Selenium
-    return 1;
+    return 1
   };
 
-  tester.validSearchArgs(t, plugin, testCases, getResultCount);
-});
+  tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
