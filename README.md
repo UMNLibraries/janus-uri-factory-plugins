@@ -234,13 +234,19 @@ The WorldCat search engine does not use scopes.
 
 ## Install
 
-Install with npm. In package.json:
+Install with npm. In package.json, include something like...
 
 ```json
   "dependencies": {
-    "@nihiliad/janus-uri-factory-plugins": "^0.0.0"
+    "@nihiliad/janus-uri-factory-plugins": "^2.0.0"
   }
 ```
+
+...where version based on the `version` value in this project's `package.json`. Then `npm install`.
+
+### Missing Dependencies of Dev Dependencies
+
+Sometimes `npm install` has not installed dependencies of packages in `devDependencies`, e.g., `eslint`, in `package.json`. If this happens, running `npm install --save-dev` should fix it.
 
 ## Use
 
