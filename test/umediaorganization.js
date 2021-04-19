@@ -1,6 +1,5 @@
 'use strict'
 const test = require('tape')
-const cheerio = require('cheerio')
 const plugin = require('../').umediaorganization()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
@@ -62,14 +61,22 @@ test('umedia uriFor() valid "search" arguments', function (t) {
     // },
   }
 
-  function getResultCount (html) {
-    const $ = cheerio.load(html)
-    const spans = $('span.pager-info')
-    // Collapse whiespace, newlines to match "123 result/results"
-    const matches = $(spans).text().trim().replace(/\s+/g, ' ').match(/(\d+) result/)
-    const count = matches.pop()
-    return count
-  }
+  async function getResultCount (page) {
+    const count = await page.$eval( 'span.pager-info', span => {
+      // Collapse whiespace, newlines to match "123 result/results"
+      const matches = span.innerText.trim().replace(/\s+/g, ' ').match(/(\d+) result/);
+      if (matches) {
+        return matches.pop();
+      } else {
+        throw Error('Cannot find a result count');
+      }
+    });
+    return count;
+  };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('cleanup', async function (t) {
+  await tester.cleanup()
 })
