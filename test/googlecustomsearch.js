@@ -1,6 +1,5 @@
 'use strict'
 const test = require('tape')
-// const cheerio = require('cheerio');
 const plugin = require('../').googlecustomsearch()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
@@ -42,35 +41,39 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
       scope: null,
       field: null
     },
-    'https://www.lib.umn.edu/search?query=wwwmath': {
-      search: 'wwwmath',
+    'https://www.lib.umn.edu/search?query=math': {
+      search: 'math',
       scope: 'www',
       field: null
     },
-    'https://hsl.lib.umn.edu/search?query=math': {
-      search: 'math',
+    'https://hsl.lib.umn.edu/search?query=virus': {
+      search: 'virus',
       scope: 'hsl',
       field: null
     },
-    'https://hsl.lib.umn.edu/search?query=quackery': {
-      search: 'quackery',
+    'https://hsl.lib.umn.edu/search?query=virus': {
+      search: 'virus',
       scope: 'wangensteen',
       field: null
     }
   }
 
-  function getResultCount (html) {
-    // const elem = $('#resInfo-1');
-    // // Displays like "About 1,294 results", strip out the comma
-    // const matches = $(elem[0]).text().trim().replace(/,/, '').match(/About (\d+) sorted/);
-    // const count = matches[1];
-    // return parseInt(count, 10);
-
-    // Our /search endpoint loads Google code that does search via XHR
-    // and returns to build results via JS. Current test runner
-    // does not support checking this, would need something like Selenium
-    return 1
+  async function getResultCount (page) {
+    const count = await page.$eval( '#resInfo-1', elem => {
+      // Displays like "About 1,294 results", strip out the comma
+      const matches = elem.innerText.trim().replace(/,/, '').match(/About (\d+) results/);
+      if (matches) {
+        return matches.pop();
+      } else {
+        throw Error('Cannot find a result count');
+      }
+    });
+    return count;
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('cleanup', async function (t) {
+  await tester.cleanup()
 })
