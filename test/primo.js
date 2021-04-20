@@ -1,10 +1,7 @@
 'use strict'
 const test = require('tape')
-// const cheerio = require('cheerio');
 const plugin = require('../').primo()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
-const jsdom = require('jsdom')
-const { JSDOM } = jsdom
 
 test('primo baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
@@ -84,34 +81,30 @@ test('primo uriFor() valid "search" arguments', function (t) {
       field: 'title',
       format: 'books'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Caudio': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Caudios': {
       search: 'darwin',
       scope: null,
       field: null,
-      format: 'audio'
+      format: 'audios'
     }
   }
 
-  function getResultCount (html) {
-    // const $ = cheerio.load(html);
-    const dom = new JSDOM(
-      html,
-      {
-        url: 'https://primo.lib.umn.edu',
-        resources: 'usable',
-        runScripts: 'dangerously'
+  async function getResultCount (page) {
+    const span = await page.waitForSelector('span[class="results-count"][role="alert"]');
+    const count = await page.$eval('span[class="results-count"][role="alert"]', span => {
+      const matches = span.textContent.trim().replace(/[",\s]/g, '').match(/^(\d+)/);
+      if (matches) {
+        return matches.pop();
+      } else {
+        throw Error('Cannot find a result count');
       }
-    )
-    const $ = require('jquery')(dom.window)
-
-    const ems = $('#mainResults div[class~="results-title"] span[class~="results-count"]')
-
-    // const count = parseInt($(ems[0]).text().trim().replace(/[",\s]/g, ''));
-    // const count = $(ems[0]).text().trim().replace(/,/g, '');
-    const count = $(ems[0]).text()
-    console.log('count = ' + count)
-    return count
-  }
+    });
+    return count;
+  };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('cleanup', async function (t) {
+  await tester.cleanup()
 })

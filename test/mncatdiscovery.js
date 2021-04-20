@@ -11,3 +11,7 @@ test('mncatdiscovery baseUri()', function (t) {
 test('mncatdiscovery emptySearchUri()', function (t) {
   tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
 })
+
+test('cleanup', async function (t) {
+  await tester.cleanup()
+})
