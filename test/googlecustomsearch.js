@@ -61,7 +61,7 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
   async function getResultCount (page) {
     const count = await page.$eval( '#resInfo-1', elem => {
       // Displays like "About 1,294 results", strip out the comma
-      const matches = elem.innerText.trim().replace(/,/, '').match(/About (\d+) results/);
+      const matches = elem.textContent.trim().replace(/,/, '').match(/About (\d+) results/);
       if (matches) {
         return matches.pop();
       } else {

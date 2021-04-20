@@ -87,8 +87,8 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'title', titleElem => {
-      const matches = titleElem.innerText.trim().match(/Found (\d+) Results/);
+    const count = await page.$eval('title', elem => {
+      const matches = elem.textContent.trim().match(/Found (\d+) Results/);
       if (matches) {
         return matches.pop()
       } else {

@@ -62,9 +62,9 @@ test('umedia uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'span.pager-info', span => {
+    const count = await page.$eval( 'span.pager-info', elem => {
       // Collapse whiespace, newlines to match "123 result/results"
-      const matches = span.innerText.trim().replace(/\s+/g, ' ').match(/(\d+) result/);
+      const matches = elem.textContent.trim().replace(/\s+/g, ' ').match(/(\d+) result/);
       if (matches) {
         return matches.pop();
       } else {

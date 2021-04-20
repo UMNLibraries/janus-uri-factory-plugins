@@ -72,8 +72,8 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'p.pagination-info', p => {
-      const matches = p.innerText.trim().match(/of (\d+) sorted/);
+    const count = await page.$eval( 'p.pagination-info', elem => {
+      const matches = elem.textContent.trim().match(/of (\d+) sorted/);
       if (matches) {
         return matches.pop();
       } else {

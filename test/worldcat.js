@@ -53,8 +53,8 @@ test('worldcat uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'div.resultsinfo > table > tbody > tr > td', div => {
-      const matches = div.innerText.trim().match(/Results 1-(\d+)/);
+    const count = await page.$eval( 'div.resultsinfo > table > tbody > tr > td', elem => {
+      const matches = elem.textContent.trim().match(/Results 1-(\d+)/);
       if (matches) {
         return matches.pop();
       } else {
