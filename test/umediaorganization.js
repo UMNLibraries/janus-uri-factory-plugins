@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').umediaorganization()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('umedia baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://umedia.lib.umn.edu/search')
 })
@@ -77,6 +81,6 @@ test('umedia uriFor() valid "search" arguments', function (t) {
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })

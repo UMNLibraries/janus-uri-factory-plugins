@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').googlecustomsearch()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('googlecustomsearch plugin scopes', function (t) {
   t.deepEqual(plugin.scopes().hsl, 'hsl.lib.umn.edu', 'scopes() correctly returns and indexable object')
   t.end()
@@ -74,6 +78,6 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })

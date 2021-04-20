@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').pubmed()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('pubmed plugin default scopes', function (t) {
   t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object')
   t.end()
@@ -54,6 +58,6 @@ test('pubmed plugin uriFor() valid "search" arguments', function (t) {
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })

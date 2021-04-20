@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').primo()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('primo baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
 })
@@ -105,6 +109,6 @@ test('primo uriFor() valid "search" arguments', function (t) {
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })

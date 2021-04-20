@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').worldcat()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('worldcat plugin default scopes', function (t) {
   t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object')
   t.end()
@@ -67,6 +71,6 @@ test('worldcat uriFor() valid "search" arguments', function (t) {
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })

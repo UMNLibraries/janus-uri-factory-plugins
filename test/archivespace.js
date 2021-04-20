@@ -3,6 +3,10 @@ const test = require('tape')
 const plugin = require('../').archivespace()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
+test('setup', async function (t) {
+  await tester.setup()
+})
+
 test('archivespace baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://archives.lib.umn.edu')
 })
@@ -87,7 +91,8 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval('title', elem => {
+    return await page.$eval('title', elem => {
+    //return await page.$eval('bogus', elem => {
       const matches = elem.textContent.trim().match(/Found (\d+) Results/);
       if (matches) {
         return matches.pop()
@@ -95,12 +100,11 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
         throw Error('Cannot find a result count')
       }
     });
-    return count;
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
 })
 
-test('cleanup', async function (t) {
-  await tester.cleanup()
+test('teardown', async function (t) {
+  await tester.teardown()
 })
