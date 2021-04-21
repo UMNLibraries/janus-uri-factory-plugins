@@ -55,8 +55,8 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
       scope: 'hsl',
       field: null
     },
-    'https://hsl.lib.umn.edu/search?query=virus': {
-      search: 'virus',
+    'https://hsl.lib.umn.edu/search?query=medicine': {
+      search: 'medicine',
       scope: 'wangensteen',
       field: null
     }
