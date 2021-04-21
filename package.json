@@ -27,7 +27,6 @@
   "license": "MIT",
   "devDependencies": {
     "@nihiliad/janus": "github:UMNLibraries/janus#playwright",
-    "cheerio": "^0.22.0",
     "got": "^11.8.1",
     "jquery": "^3.5.1",
     "jsdom": "^11.12.0",
