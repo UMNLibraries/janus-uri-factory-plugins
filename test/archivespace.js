@@ -92,14 +92,10 @@ test('archivespace uriFor() valid "search" arguments', function (t) {
 
   async function getResultCount (page) {
     return await page.$eval('title', elem => {
-    //return await page.$eval('bogus', elem => {
-      const matches = elem.textContent.trim().match(/Found (\d+) Results/);
-      if (matches) {
-        return matches.pop()
-      } else {
-        throw Error('Cannot find a result count')
-      }
-    });
+      const matches = elem.textContent.trim().match(/Found (\d+) Results/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)

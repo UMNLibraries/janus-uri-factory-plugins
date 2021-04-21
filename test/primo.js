@@ -94,16 +94,12 @@ test('primo uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const span = await page.waitForSelector('span[class="results-count"][role="alert"]');
-    const count = await page.$eval('span[class="results-count"][role="alert"]', span => {
-      const matches = span.textContent.trim().replace(/[",\s]/g, '').match(/^(\d+)/);
-      if (matches) {
-        return matches.pop();
-      } else {
-        throw Error('Cannot find a result count');
-      }
-    });
-    return count;
+    await page.waitForSelector('span[class="results-count"][role="alert"]')
+    return await page.$eval('span[class="results-count"][role="alert"]', elem => {
+      const matches = elem.textContent.trim().replace(/[",\s]/g, '').match(/^(\d+)/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)

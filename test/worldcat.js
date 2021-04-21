@@ -57,15 +57,11 @@ test('worldcat uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'div.resultsinfo > table > tbody > tr > td', elem => {
-      const matches = elem.textContent.trim().match(/Results 1-(\d+)/);
-      if (matches) {
-        return matches.pop();
-      } else {
-        throw Error('Cannot find a result count');
-      }
-    });
-    return count;
+    return await page.$eval('div.resultsinfo > table > tbody > tr > td', elem => {
+      const matches = elem.textContent.trim().match(/Results 1-(\d+)/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)

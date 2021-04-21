@@ -63,16 +63,12 @@ test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t)
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( '#resInfo-1', elem => {
+    return await page.$eval('#resInfo-1', elem => {
       // Displays like "About 1,294 results", strip out the comma
-      const matches = elem.textContent.trim().replace(/,/, '').match(/About (\d+) results/);
-      if (matches) {
-        return matches.pop();
-      } else {
-        throw Error('Cannot find a result count');
-      }
-    });
-    return count;
+      const matches = elem.textContent.trim().replace(/,/, '').match(/About (\d+) results/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)

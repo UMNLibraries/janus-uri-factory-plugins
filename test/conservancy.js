@@ -76,15 +76,11 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    const count = await page.$eval( 'p.pagination-info', elem => {
-      const matches = elem.textContent.trim().match(/of (\d+) sorted/);
-      if (matches) {
-        return matches.pop();
-      } else {
-        throw Error('Cannot find a result count');
-      }
-    });
-    return count;
+    return await page.$eval('p.pagination-info', elem => {
+      const matches = elem.textContent.trim().match(/of (\d+) sorted/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
