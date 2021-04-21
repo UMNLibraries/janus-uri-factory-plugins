@@ -40,8 +40,8 @@ test('googlecustomsearch plugin uriFor() missing "search" arguments', function (
 test('googlecustomsearch plugin uriFor() valid "search" arguments', function (t) {
   // testCases map expected uri to uriFor() arguments
   const testCases = {
-    'https://www.lib.umn.edu/search?query=math': {
-      search: 'math',
+    'https://www.lib.umn.edu/search?query=darwin': {
+      search: 'darwin',
       scope: null,
       field: null
     },
