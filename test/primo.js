@@ -85,7 +85,7 @@ test('primo uriFor() valid "search" arguments', function (t) {
       field: 'title',
       format: 'books'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Carchive': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Carchive%2C1&mfacet=rtype%2Cinclude%2Carchival_material_manuscripts%2C1': {
       search: 'darwin',
       scope: null,
       field: null,

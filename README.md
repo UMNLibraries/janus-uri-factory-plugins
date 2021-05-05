@@ -139,7 +139,7 @@ YMCA Archives | ymca
 
 Name/Description | Value
 -----------------|------
-Archival/MSS Mtls | archive
+Archival/MSS Mtls _and_ Archival Material/Manuscripts | archive
 Audio | audio
 Books | books
 Journals | journals
