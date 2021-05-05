@@ -79,43 +79,43 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: 'givens',
       field: 'title'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man&facet=rtype%2Cexact%2Cbooks': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man&facet=rtype%2Cinclude%2Cbooks': {
       search: 'invisible man',
       scope: 'givens',
       field: 'title',
       format: 'books'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Carchive': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Carchive': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'archive'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Caudios': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Caudios': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'audios'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Cjournals': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cjournals': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'journals'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Cmaps': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cmaps': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'maps'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Cscores': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cscores': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'scores'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Cvideos': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cvideos': {
       search: 'darwin',
       scope: null,
       field: null,
