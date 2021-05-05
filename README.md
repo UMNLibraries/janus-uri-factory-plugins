@@ -140,12 +140,12 @@ YMCA Archives | ymca
 Name/Description | Value
 -----------------|------
 Archival/MSS Mtls _and_ Archival Material/Manuscripts | archive
-Audio | audio
+Audio | audios
 Books | books
 Journals | journals
 Maps | maps
 Scores | scores
-Video | video
+Videos | videos
 
 
 ### PubMed
