@@ -1,6 +1,6 @@
 {
   "name": "@nihiliad/janus-uri-factory-plugins",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Plugins for the Janus uri-factory.",
   "main": "index.js",
   "scripts": {
@@ -26,17 +26,14 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@nihiliad/janus": "github:UMNLibraries/janus#playwright",
-    "got": "^11.8.1",
-    "jquery": "^3.5.1",
-    "jsdom": "^11.12.0",
+    "@nihiliad/janus": "^2.1.0",
     "playwright": "^1.10.0",
     "standard": "^14.3.4",
-    "tape": "^5.1.1"
+    "tape": "^5.2.2"
   },
   "dependencies": {
     "require-all": "^3.0.0",
-    "stampit": "^4.3.1",
-    "urijs": "^1.19.5"
+    "stampit": "^4.3.2",
+    "urijs": "^1.19.6"
   }
 }
