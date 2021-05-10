@@ -1,10 +1,11 @@
 'use strict'
 const test = require('tape')
-// const cheerio = require('cheerio');
 const plugin = require('../').primo()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
-const jsdom = require('jsdom')
-const { JSDOM } = jsdom
+
+test('setup', async function (t) {
+  await tester.setup()
+})
 
 test('primo baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
@@ -78,40 +79,62 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: 'givens',
       field: 'title'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man&facet=rtype%2Cexact%2Cbooks': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man&facet=rtype%2Cinclude%2Cbooks': {
       search: 'invisible man',
       scope: 'givens',
       field: 'title',
       format: 'books'
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexact%2Caudio': {
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Carchive%2C1&mfacet=rtype%2Cinclude%2Carchival_material_manuscripts%2C1': {
       search: 'darwin',
       scope: null,
       field: null,
-      format: 'audio'
+      format: 'archive'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Caudios': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'audios'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cjournals': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'journals'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cmaps': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'maps'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cscores': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'scores'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cvideos': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'videos'
     }
   }
 
-  function getResultCount (html) {
-    // const $ = cheerio.load(html);
-    const dom = new JSDOM(
-      html,
-      {
-        url: 'https://primo.lib.umn.edu',
-        resources: 'usable',
-        runScripts: 'dangerously'
-      }
-    )
-    const $ = require('jquery')(dom.window)
-
-    const ems = $('#mainResults div[class~="results-title"] span[class~="results-count"]')
-
-    // const count = parseInt($(ems[0]).text().trim().replace(/[",\s]/g, ''));
-    // const count = $(ems[0]).text().trim().replace(/,/g, '');
-    const count = $(ems[0]).text()
-    console.log('count = ' + count)
-    return count
-  }
+  async function getResultCount (page) {
+    await page.waitForSelector('span[class="results-count"][role="alert"]')
+    return await page.$eval('span[class="results-count"][role="alert"]', elem => {
+      const matches = elem.textContent.trim().replace(/[",\s]/g, '').match(/^(\d+)/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
+  };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('teardown', async function (t) {
+  await tester.teardown()
 })

@@ -26,8 +26,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 
 Except for Conservancy, PubMed, and WorldCat, each plugin defines a list of valid `scope` values.
 
-Plugins may also define a list of valid `format` values, implemented only by
-Primo.
+Plugins may also define a list of valid `format` values, implemented only by Primo.
 
 ### ArchiveSpace
 
@@ -139,13 +138,13 @@ YMCA Archives | ymca
 
 Name/Description | Value
 -----------------|------
-Archival/MSS Mtls | archive
-Audio | audio
+Archival/MSS Mtls _and_ Archival Material/Manuscripts | archive
+Audio | audios
 Books | books
 Journals | journals
 Maps | maps
 Scores | scores
-Video | video
+Videos | videos
 
 
 ### PubMed
@@ -156,13 +155,12 @@ The PubMed search engine does not use scopes.
 Alias of `umediaorganization`
 
 ### UMedia Organization
-Scope UMedia search results by Contributing Organization facet. Contributing
-Organizations are valiated against this list, and provided with an abbreviated
-name for convenience.
-Currently available Contributing Organizations are listed at
+
+Scope UMedia search results by Contributing Organization facet. Contributing Organizations are valiated against this list, and provided with an abbreviated name for convenience. Currently available Contributing Organizations are listed at
 https://umedia.lib.umn.edu/facets?facet_field=contributing_organization_name_s&facet_limit=500&facet_sort=index
 
 #### Sample Usage:
+
 ```
 # Search for "maps" within United States Geological Survey contributions
 /janus?target=umediaorganization&scope=usgs&search=maps
@@ -216,13 +214,11 @@ University of Minnesota, School of Physics and Astronomy. | physics
 University of Minnesota, School of Public Health. | pubhealth
 
 ### UMedia Collection
-Scope UMedia search results by Collection name. Hundreds of collections are
-available and the list is too fluid to validate. Scope values will be accepted
-and passed to UMedia as a facet.
-Currently available collections usable as `scope` values are listed at
-https://umedia.lib.umn.edu/facets?facet_field=collection_name_s&facet_limit=500&facet_sort=index
+
+Scope UMedia search results by Collection name. Hundreds of collections are available and the list is too fluid to validate. Scope values will be accepted and passed to UMedia as a facet. Currently available collections usable as `scope` values are listed at https://umedia.lib.umn.edu/facets?facet_field=collection_name_s&facet_limit=500&facet_sort=index
 
 #### Sample Usage:
+
 ```
 # Search for "arboretum" within the Cloquet Forestry Center Records collection
 /janus?target=umediacollection&scope=Cloquet+Forestry+Center+Records&search=arboretum
@@ -303,4 +299,3 @@ To run a single unit test file, e.g., `test/factory.js`:
 ```
 npx tape test/factory.js
 ```
-

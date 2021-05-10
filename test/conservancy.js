@@ -1,8 +1,11 @@
 'use strict'
 const test = require('tape')
-const cheerio = require('cheerio')
 const plugin = require('../').conservancy()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+
+test('setup', async function (t) {
+  await tester.setup()
+})
 
 test('conservancy baseUri()', function (t) {
   tester.baseUri(t, plugin, 'https://conservancy.umn.edu/discover')
@@ -72,13 +75,17 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
     }
   }
 
-  function getResultCount (html) {
-    const $ = cheerio.load(html)
-    const elems = $('p.pagination-info')
-    const matches = $(elems[0]).text().trim().match(/of (\d+) sorted/)
-    const count = matches.pop()
-    return count
-  }
+  async function getResultCount (page) {
+    return await page.$eval('p.pagination-info', elem => {
+      const matches = elem.textContent.trim().match(/of (\d+) sorted/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
+  };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('teardown', async function (t) {
+  await tester.teardown()
 })

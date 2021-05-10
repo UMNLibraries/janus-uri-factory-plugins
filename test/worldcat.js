@@ -1,8 +1,11 @@
 'use strict'
 const test = require('tape')
-const cheerio = require('cheerio')
 const plugin = require('../').worldcat()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+
+test('setup', async function (t) {
+  await tester.setup()
+})
 
 test('worldcat plugin default scopes', function (t) {
   t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object')
@@ -53,13 +56,17 @@ test('worldcat uriFor() valid "search" arguments', function (t) {
     }
   }
 
-  function getResultCount (html) {
-    const $ = cheerio.load(html)
-    const elems = $('div[class=resultsinfo]').first().find('table').find('tr').find('td')
-    const matches = $(elems[0]).text().match(/Results 1-(\d+)/)
-    const count = matches.pop()
-    return count
-  }
+  async function getResultCount (page) {
+    return await page.$eval('div.resultsinfo > table > tbody > tr > td', elem => {
+      const matches = elem.textContent.trim().match(/Results 1-(\d+)/)
+      if (matches) return matches.pop()
+      throw Error('Failed to find a result count')
+    })
+  };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('teardown', async function (t) {
+  await tester.teardown()
 })

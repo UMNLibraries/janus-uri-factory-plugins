@@ -1,8 +1,11 @@
 'use strict'
 const test = require('tape')
-const cheerio = require('cheerio')
 const plugin = require('../').pubmed()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+
+test('setup', async function (t) {
+  await tester.setup()
+})
 
 test('pubmed plugin default scopes', function (t) {
   t.deepEqual(plugin.scopes(), {}, 'scopes() correctly returns the default empty object')
@@ -44,13 +47,17 @@ test('pubmed plugin uriFor() valid "search" arguments', function (t) {
     }
   }
 
-  function getResultCount (html) {
-    const $ = cheerio.load(html)
-    const elems = $('div[class=results-amount]').first().find('span[class=value]')
-    const matches = $(elems[0]).text().trim().replace(/,/g, '').match(/(\d+)/)
-    const count = matches.pop()
+  async function getResultCount (page) {
+    const count = await page.$eval(
+      '#search-results > .results-amount-container > .results-amount > .value',
+      elem => { return elem.textContent.replace(/,/g, '') }
+    )
     return count
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)
+})
+
+test('teardown', async function (t) {
+  await tester.teardown()
 })
