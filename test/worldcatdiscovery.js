@@ -17,7 +17,7 @@ test('worldcatdiscovery baseUri()', function (t) {
 })
 
 test('worldcatdiscovery emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://universityofminnesota-minneapolis.on.worldcat.org')
+  tester.emptySearchUri(t, plugin, 'https://universityofminnesota-minneapolis.on.worldcat.org/discovery')
 })
 
 test('worldcatdiscovery uriFor() missing "search" arguments', function (t) {
