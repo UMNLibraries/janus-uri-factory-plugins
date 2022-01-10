@@ -13,7 +13,7 @@ test('worldcatdiscovery plugin default scopes', function (t) {
 })
 
 test('worldcatdiscovery baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://universityofminnesota-minneapolis.on.worldcat.org')
+  tester.baseUri(t, plugin, 'https://universityofminnesota-minneapolis.on.worldcat.org/discovery')
 })
 
 test('worldcatdiscovery emptySearchUri()', function (t) {
