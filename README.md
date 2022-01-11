@@ -14,7 +14,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
 	- [Conservancy](#conservancy)
-	- [WorldCat](#worldcat)
+	- [WorldCat & WorldCat Discovery](#worldcat)
 - [Install](#install)
 - [Use](#use)
 - [Test](#test)
