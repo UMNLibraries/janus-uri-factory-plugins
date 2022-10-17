@@ -58,13 +58,13 @@ test('worldcatdiscovery uriFor() valid "search" arguments', function (t) {
 
   async function getResultCount (page) {
     await page
-      .waitForSelector('#search-scope-summary');
+      .waitForSelector('#search-scope-summary')
     return await page
       .$eval('#search-scope-summary strong', elem => {
-      const matches = elem.textContent.trim().replace(/,/, '').match(/(\d+) results/)
-      if (matches) return matches.pop()
-      throw Error('Failed to find a result count')
-    })
+        const matches = elem.textContent.trim().replace(/,/, '').match(/(\d+) results/)
+        if (matches) return matches.pop()
+        throw Error('Failed to find a result count')
+      })
   };
 
   tester.validSearchArgs(t, plugin, testCases, getResultCount)

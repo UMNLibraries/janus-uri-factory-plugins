@@ -1,6 +1,6 @@
 'use strict'
 const test = require('tape')
-const plugin = require('../').primo-news()
+const plugin = require('../').primonews()
 const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
 test('setup', async function (t) {
@@ -74,7 +74,7 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: 'wilson_rare',
       field: null
     },
-    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man': '){
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=givens&query=title%2Ccontains%2Cinvisible+man': {
       search: 'invisible man',
       scope: 'givens',
       field: 'title'
