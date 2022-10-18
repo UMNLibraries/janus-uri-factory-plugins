@@ -120,6 +120,18 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: null,
       format: 'videos'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&facet=tlevel%2Cinclude%2Conline_resources%24%24ITWINCITIES': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'online'
+    },
+    'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US&search_scope=mncat_discovery&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Caudios%2C1&mfacet=rtype%2Cinclude%2Cimages%2C1&mfacet=rtype%2Cinclude%2Cvideos%2C1': {
+      search: 'darwin',
+      scope: null,
+      field: null,
+      format: 'media'
     }
   }
 
