@@ -11,6 +11,7 @@ Plugins for the [Janus URI factory](https://github.com/UMNLibraries/janus#uri-fa
 	- [GoogleCustomSearch](#google-custom-search)
 	- [MncatDiscovery](#mncatdiscovery)
 	- [Primo](#primo)
+	- [PrimoNews](#primonews)
 	- [PubMed](#pubmed)
 	- [UMedia](#umedia)
 	- [Conservancy](#conservancy)
@@ -139,13 +140,18 @@ YMCA Archives | ymca
 Name/Description | Value
 -----------------|------
 Archival/MSS Mtls _and_ Archival Material/Manuscripts | archive
+Articles | articles
 Audio | audios
 Books | books
 Journals | journals
 Maps | maps
+Media (combination of audio, video, image) | media
+Available online | online
 Scores | scores
 Videos | videos
 
+### Primonews
+Newspaper searches within Primo. Does not use scopes or formats.
 
 ### PubMed
 
