@@ -69,9 +69,9 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: 'subject'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=wilson_rare&query=any%2Ccontains%2Cfrancis+scott+fitzgerald': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=wilson&query=any%2Ccontains%2Cfrancis+scott+fitzgerald': {
       search: 'francis scott fitzgerald',
-      scope: 'wilson_rare',
+      scope: 'wilson',
       field: null
     },
     'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=givens&query=title%2Ccontains%2Cinvisible+man': {
