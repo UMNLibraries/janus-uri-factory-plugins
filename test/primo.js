@@ -136,10 +136,10 @@ test('primo uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    await page.waitForSelector('span[class="results-count"][role="alert"]')
-    return await page.$eval('span[class="results-count"][role="alert"]', elem => {
-      const matches = elem.textContent.trim().replace(/[",\s]/g, '').match(/^(\d+)/)
-      if (matches) return matches.pop()
+    await page.waitForSelector('prm-search-result-page-range:first-of-type')
+    return await page.$eval('prm-search-result-page-range:first-of-type', elem => {
+      const numresults = elem.textContent.trim().match(/([\d,]+) Results/)[1].replace(/[^\d]/, '')
+      if (numresults) return parseInt(numresults, 10)
       throw Error('Failed to find a result count')
     })
   };
