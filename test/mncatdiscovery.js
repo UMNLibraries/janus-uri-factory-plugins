@@ -9,11 +9,11 @@ test('setup', async function (t) {
 
 // Simply validate that a primo (to which mncatdiscovery is aliased) test runs
 test('mncatdiscovery baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
+  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en')
 })
 
 test('mncatdiscovery emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/search?institution=TWINCITIES&vid=TWINCITIES&dum=true&highlight=true&lang=en_US')
+  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en')
 })
 
 test('teardown', async function (t) {

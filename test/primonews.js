@@ -8,11 +8,11 @@ test('setup', async function (t) {
 })
 
 test('primonews baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/npsearch?vid=TWINCITIES&lang=en_US&dum=true&highlight=true&offset=0')
+  tester.baseUri(t, plugin, 'https://primo.lib.umn.edu/discovery/npsearch?vid=01UMN_INST%3ATWINCITIES&lang=en&offset=0')
 })
 
 test('primonews emptySearchUri()', function (t) {
-  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/primo-explore/npsearch?vid=TWINCITIES&lang=en_US&dum=true&highlight=true&offset=0')
+  tester.emptySearchUri(t, plugin, 'https://primo.lib.umn.edu/discovery/npsearch?vid=01UMN_INST%3ATWINCITIES&lang=en&offset=0')
 })
 
 test('primonews uriFor() missing "search" arguments', function (t) {
@@ -35,7 +35,7 @@ test('primonews uriFor() missing "search" arguments', function (t) {
 test('primo uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://primo.lib.umn.edu/primo-explore/npsearch?vid=TWINCITIES&lang=en_US&dum=true&highlight=true&offset=0&query=any%2Ccontains%2Ccharles+darwin': {
+    'https://primo.lib.umn.edu/discovery/npsearch?vid=01UMN_INST%3ATWINCITIES&lang=en&offset=0&query=any%2Ccontains%2Ccharles+darwin': {
       search: 'charles darwin',
       scope: null,
       field: null
