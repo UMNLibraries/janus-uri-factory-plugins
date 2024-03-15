@@ -49,22 +49,22 @@ test('primo uriFor() missing "search" arguments', function (t) {
 })
 
 test('primo invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin')
+  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin')
 })
 
 test('primo invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin')
+  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin')
 })
 
 test('primo uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin': {
       search: 'darwin',
       scope: null,
       field: null
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=sub%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=sub%2Ccontains%2Cdarwin': {
       search: 'darwin',
       scope: null,
       field: 'subject'
@@ -85,49 +85,49 @@ test('primo uriFor() valid "search" arguments', function (t) {
       field: 'title',
       format: 'books'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Carchive%2C1&mfacet=rtype%2Cinclude%2Carchival_material_manuscripts%2C1': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Carchive%2C1&mfacet=rtype%2Cinclude%2Carchival_material_manuscripts%2C1': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'archive'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Caudios': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Caudios': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'audios'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cjournals': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cjournals': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'journals'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cmaps': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cmaps': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'maps'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cscores': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cscores': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'scores'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cvideos': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cinclude%2Cvideos': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'videos'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&facet=tlevel%2Cinclude%2Conline_resources%24%24ITWINCITIES': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=tlevel%2Cinclude%2Conline_resources%24%24ITWINCITIES': {
       search: 'darwin',
       scope: null,
       field: null,
       format: 'online'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Caudios%2C1&mfacet=rtype%2Cinclude%2Cimages%2C1&mfacet=rtype%2Cinclude%2Cvideos%2C1': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&mfacet=rtype%2Cinclude%2Caudios%2C1&mfacet=rtype%2Cinclude%2Cimages%2C1&mfacet=rtype%2Cinclude%2Cvideos%2C1': {
       search: 'darwin',
       scope: null,
       field: null,
