@@ -72,6 +72,11 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
       search: 'minnesota',
       scope: '/', // All of the UDC
       field: 'title'
+    },
+    'https://conservancy.umn.edu/search?query=minnesota&scope=4b8b835d-e1aa-4f79-bc86-f031b1d5882f': {
+      search: 'minnesota',
+      scope: '4b8b835d-e1aa-4f79-bc86-f031b1d5882f', // UUID for DRUM
+      field: null
     }
   }
 
