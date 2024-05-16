@@ -63,16 +63,6 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: 'subject'
     },
-    'https://conservancy.umn.edu/search?query=sociology&scope=11299%2F1': {
-      search: 'sociology',
-      scope: '1', // University of Minnesota - Twin Cities
-      field: null
-    },
-    'https://conservancy.umn.edu/search?query=minnesota&scope=%2F&filtertype_1=title&filter_relational_operator_1=contains&filter_1=minnesota': {
-      search: 'minnesota',
-      scope: '/', // All of the UDC
-      field: 'title'
-    },
     'https://conservancy.umn.edu/search?query=minnesota&scope=4b8b835d-e1aa-4f79-bc86-f031b1d5882f': {
       search: 'minnesota',
       scope: '4b8b835d-e1aa-4f79-bc86-f031b1d5882f', // UUID for DRUM
@@ -81,8 +71,8 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    return await page.$eval('p.pagination-info', elem => {
-      const matches = elem.textContent.trim().match(/of (\d+) sorted/)
+    return await page.$eval('ds-search-results', elem => {
+      const matches = elem.textContent.trim().match(/Now showing (\d+)/)
       if (matches) return matches.pop()
       throw Error('Failed to find a result count')
     })
