@@ -8,7 +8,7 @@ test('setup', async function (t) {
 })
 
 test('conservancy baseUri()', function (t) {
-  tester.baseUri(t, plugin, 'https://conservancy.umn.edu/discover')
+  tester.baseUri(t, plugin, 'https://conservancy.umn.edu/search')
 })
 
 test('conservancy emptySearchUri()', function (t) {
@@ -43,32 +43,32 @@ test('conservancy uriFor() missing "search" arguments', function (t) {
 })
 
 test('conservancy invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://conservancy.umn.edu/discover?query=darwin')
+  tester.invalidFieldArgs(t, plugin, 'https://conservancy.umn.edu/search?query=darwin')
 })
 
 test('conservancy invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'https://conservancy.umn.edu/discover?query=darwin')
+  tester.invalidScopeArgs(t, plugin, 'https://conservancy.umn.edu/search?query=darwin')
 })
 
 test('conservancy uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://conservancy.umn.edu/discover?query=darwin': {
+    'https://conservancy.umn.edu/search?query=darwin': {
       search: 'darwin',
       scope: null,
       field: null
     },
-    'https://conservancy.umn.edu/discover?query=darwin&filtertype_1=subject&filter_relational_operator_1=contains&filter_1=darwin': {
+    'https://conservancy.umn.edu/search?query=darwin&filtertype_1=subject&filter_relational_operator_1=contains&filter_1=darwin': {
       search: 'darwin',
       scope: null,
       field: 'subject'
     },
-    'https://conservancy.umn.edu/discover?query=sociology&scope=11299%2F1': {
+    'https://conservancy.umn.edu/search?query=sociology&scope=11299%2F1': {
       search: 'sociology',
       scope: '1', // University of Minnesota - Twin Cities
       field: null
     },
-    'https://conservancy.umn.edu/discover?query=minnesota&scope=%2F&filtertype_1=title&filter_relational_operator_1=contains&filter_1=minnesota': {
+    'https://conservancy.umn.edu/search?query=minnesota&scope=%2F&filtertype_1=title&filter_relational_operator_1=contains&filter_1=minnesota': {
       search: 'minnesota',
       scope: '/', // All of the UDC
       field: 'title'
