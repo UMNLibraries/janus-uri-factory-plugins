@@ -71,8 +71,8 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
   }
 
   async function getResultCount (page) {
-    return await page.$eval('ds-search-results', elem => {
-      const matches = elem.textContent.trim().match(/Now showing (\d+)/)
+    return await page.$eval('small.results', elem => {
+      const matches = elem.textContent.trim().match(/(\d+) results/)
       if (matches) return matches.pop()
       throw Error('Failed to find a result count')
     })
