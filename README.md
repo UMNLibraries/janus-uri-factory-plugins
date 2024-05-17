@@ -55,21 +55,20 @@ YMCA (Krautz Family YMCA Archives) | 7
 
 ### Conservancy
 
-UDC scopes can be either a single slash (/), for all or the UDC, or
-id/collectionId, where id and collectionId are both integers. id always seems
-to be 1129, and Conservancy scope handling depends on that being true.
-We require users to pass in only the collectionId. A list can be found at:
+UDC scopes in DSpace 7.x take the form of a UUID, where a UUID may represent
+either a community (such as a system campus) or a more limited collection. A
+scope query can therefore limit results at either of those levels.
+
+Available community and collection scopes can be found at:
 
 https://conservancy.umn.edu/community-list
 
-The URLs listed there are all of the form: https://conservancy.umn.edu/handle/11299/collectionId
-
 Examples:
 
-Name/Description                      | Collection URL                                  | Value
---------------------------------------|-------------------------------------------------|-------------
-University of Minnesota - Twin Cities | https://conservancy.umn.edu/handle/11299/1      | 1
-Articles and Scholarly Works          | https://conservancy.umn.edu/handle/11299/169792 | 169792
+Name/Description                      | Community or Collection URL                     | Scope Value
+--------------------------------------|-------------------------------------------------|---------------------------------
+University of Minnesota - Twin Cities | https://conservancy.umn.edu/communities/600d3b06-e18e-4f60-aef0-ae4ad51c5c2b | 600d3b06-e18e-4f60-aef0-ae4ad51c5c2b
+Articles and Scholarly Works          | https://conservancy.umn.edu/collections/06a2bbc2-0c84-4c15-913a-4e6aef330315 | 06a2bbc2-0c84-4c15-913a-4e6aef330315
 
 ### Google Custom Search
 Performs a search via the Google Custom Search endpoint configured at
