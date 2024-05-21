@@ -1,6 +1,6 @@
 {
   "name": "@nihiliad/janus-uri-factory-plugins",
-  "version": "3.2.0-alpha",
+  "version": "3.2.0",
   "description": "Plugins for the Janus uri-factory.",
   "main": "index.js",
   "scripts": {
