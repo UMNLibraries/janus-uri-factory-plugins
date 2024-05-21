@@ -58,7 +58,7 @@ test('conservancy uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: null
     },
-    'https://conservancy.umn.edu/search?query=darwin&filtertype_1=subject&filter_relational_operator_1=contains&filter_1=darwin': {
+    'https://conservancy.umn.edu/search?query=darwin&f.subject=darwin%2Ccontains': {
       search: 'darwin',
       scope: null,
       field: 'subject'
