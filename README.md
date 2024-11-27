@@ -146,6 +146,7 @@ Journals | journals
 Maps | maps
 Media (combination of audio, video, image) | media
 Available online | online
+Realia | realia
 Scores | scores
 Videos | videos
 
