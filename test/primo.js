@@ -132,6 +132,12 @@ test('primo uriFor() valid "search" arguments', function (t) {
       scope: null,
       field: null,
       format: 'media'
+    },
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Ccenticubes&facet=rtype%2Cinclude%2Crealia': {
+      search: 'centicubes',
+      scope: null,
+      field: null,
+      format: 'realia'
     }
   }
 
