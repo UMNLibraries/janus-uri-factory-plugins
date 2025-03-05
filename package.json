@@ -32,7 +32,7 @@
   "devDependencies": {
     "@nihiliad/janus": "^2.1.0",
     "playwright": "^1.10.0",
-    "standard": "^14.3.4",
+    "standard": "^17.1.2",
     "tape": "^5.2.2"
   },
   "dependencies": {
