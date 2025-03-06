@@ -1,7 +1,7 @@
 'use strict'
 const test = require('tape')
 const plugin = require('../').worldcat()
-const tester = require('@nihiliad/janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+const tester = require('janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
 
 test('setup', async function (t) {
   await tester.setup()
