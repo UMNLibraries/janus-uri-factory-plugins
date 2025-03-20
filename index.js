@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 const directory = './lib';
 const moduleMap = {};
-const files = fs.readdir(directory);
+const files = fs.readdir(directory, (err, files));
 
 for (const file of files) {
   if (file.endsWith('.js')) {
