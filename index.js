@@ -1,5 +1,6 @@
 'use strict'
 import path from 'path';
+import fs from 'fs';
 const directory = './lib';
 const moduleMap = {};
 const files = fs.readdir(directory);
