@@ -1,23 +1,24 @@
-'use strict'
-import path from 'path';
-import fs from 'fs';
-const directory = './lib';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const directory = path.join(__dirname, "lib");
+
 const moduleMap = {};
-const files = fs.readdir(directory, (err, data) => {
-  if (err) throw err;
-  console.log(data);
-}); 
+const files = fs.readdirSync(directory);
 
 for (const file of files) {
-  if (file.endsWith('.js')) {
-    const modulePath = path.join(directory, file);
+  if (file.endsWith(".js")) {
+    const moduleName = path.basename(file, ".js"); // Remove .js extension
+    const modulePath = pathToFileURL(path.join(directory, file)).href; // Convert to URL
+
     try {
-      const module = import(modulePath);
-      moduleMap[file.slice(0, -3)] = module;
+      moduleMap[moduleName] = await import(modulePath); // ESM requires async import
     } catch (error) {
       console.error(`Error importing ${file}:`, error);
     }
   }
 }
-export default moduleMap;
 
+export default moduleMap;
