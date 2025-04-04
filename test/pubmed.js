@@ -1,7 +1,10 @@
 'use strict'
-const test = require('tape')
-const plugin = require('../').pubmed()
-const tester = require('janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+import test from 'tape';
+//const plugin = require('../').pubmed();
+import moduleMap from '../index.js';
+const plugin = moduleMap['pubmed'];
+import testerFactory from 'janus/uri-factory/plugin-tester.js';
+const tester = testerFactory({ runIntegrationTests: false });
 
 test('setup', async function (t) {
   await tester.setup()

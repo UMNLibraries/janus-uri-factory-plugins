@@ -1,7 +1,7 @@
 'use strict'
-const test = require('tape')
-const plugins = require('../')
-const factory = require('janus/uri-factory')
+import test from 'tape';
+import plugins from '../index.js';
+import factory from 'janus/uri-factory/index.js';
 
 test('factory instantiation with all plugins', function (t) {
   t.doesNotThrow(

@@ -1,7 +1,9 @@
 'use strict'
-const test = require('tape')
-const plugin = require('../').archivespace()
-const tester = require('janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+import test from 'tape';
+//const plugin = require('../').archivespace();
+import plugin from '../lib/archivespace.js';
+import testerFactory from 'janus/uri-factory/plugin-tester.js';
+const tester = testerFactory({ runIntegrationTests: false });
 
 test('setup', async function (t) {
   await tester.setup()

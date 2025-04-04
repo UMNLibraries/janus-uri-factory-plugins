@@ -1,7 +1,9 @@
 'use strict'
-const test = require('tape')
-const plugin = require('../').worldcatdiscovery()
-const tester = require('janus/uri-factory/plugin-tester')({ runIntegrationTests: false })
+import test from 'tape';
+//const plugin = require('../').worldcatdiscovery();
+import plugin from '../lib/worldcatdiscovery.js';
+import testerFactory from 'janus/uri-factory/plugin-tester.js';
+const tester = testerFactory({ runIntegrationTests: false });
 
 test('setup', async function (t) {
   await tester.setup()
