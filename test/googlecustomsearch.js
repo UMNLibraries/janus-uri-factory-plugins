@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').googlecustomsearch();
-import plugin from '../lib/googlecustomsearch.js';
+import googlecustomsearch from '../lib/googlecustomsearch.js';
+const plugin = googlecustomsearch();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').conservancy();
-import plugin from '../lib/conservancy.js';
+import conservancy from '../lib/conservancy.js';
+const plugin = conservancy();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

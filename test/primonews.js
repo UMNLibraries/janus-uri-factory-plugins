@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').primonews();
-import plugin from '../lib/primonews.js';
+import primonews from '../lib/primonews.js';
+const plugin = primonews();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

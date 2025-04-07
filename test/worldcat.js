@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').worldcat();
-import plugin from '../lib/worldcat.js';
+import worldcat from '../lib/worldcat.js';
+const plugin = worldcat();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

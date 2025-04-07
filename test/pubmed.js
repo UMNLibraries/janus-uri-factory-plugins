@@ -1,8 +1,10 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').pubmed();
-import moduleMap from '../index.js';
-const plugin = moduleMap['pubmed'];
+//import moduleMap from '../index.js';
+//const plugin = moduleMap['pubmed'];
+import pubmed from '../lib/pubmed.js';
+const plugin = pubmed();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

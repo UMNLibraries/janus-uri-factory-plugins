@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').archivespace();
-import plugin from '../lib/archivespace.js';
+import archivespace from '../lib/archivespace.js';
+const plugin = archivespace();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

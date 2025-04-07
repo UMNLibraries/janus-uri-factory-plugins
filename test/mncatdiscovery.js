@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').mncatdiscovery();
-import plugin from '../lib/mncatdiscovery.js';
+import mncatdiscovery from '../lib/mncatdiscovery.js';
+const plugin = mncatdiscovery();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 

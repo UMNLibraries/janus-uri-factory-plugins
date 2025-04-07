@@ -1,7 +1,8 @@
 'use strict'
 import test from 'tape';
 //const plugin = require('../').umediacollection();
-import plugin from '../lib/umediacollection.js';
+import umediacollection from '../lib/umediacollection.js';
+const plugin = umediacollection();
 import testerFactory from 'janus/uri-factory/plugin-tester.js';
 const tester = testerFactory({ runIntegrationTests: false });
 
