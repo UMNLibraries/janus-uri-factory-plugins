@@ -14,7 +14,10 @@ for (const file of files) {
     const modulePath = pathToFileURL(path.join(directory, file)).href; // Convert to URL
 
     try {
-      moduleMap[moduleName] = await import(modulePath); // ESM requires async import
+      // Dynamic importing is significantly different than static importing, especially
+      // because import() returns a promise instead of evaluating the module.
+      // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import
+      import(modulePath).then( moduleMap[moduleName] );
     } catch (error) {
       console.error(`Error importing ${file}:`, error);
     }
