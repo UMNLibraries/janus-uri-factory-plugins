@@ -17,7 +17,11 @@ for (const file of files) {
       // Dynamic importing is significantly different than static importing, especially
       // because import() returns a promise instead of evaluating the module.
       // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import
-      import(modulePath).then( moduleMap[moduleName] );
+      import(modulePath)
+        .then(module => {
+          moduleMap[moduleName] = module.default; 
+          console.log("Plugin: ", moduleMap[moduleName]);
+        })
     } catch (error) {
       console.error(`Error importing ${file}:`, error);
     }
