@@ -20,7 +20,6 @@ for (const file of files) {
       import(modulePath)
         .then(module => {
           moduleMap[moduleName] = module.default; 
-          console.log("Plugin: ", moduleMap[moduleName]);
         })
     } catch (error) {
       console.error(`Error importing ${file}:`, error);
