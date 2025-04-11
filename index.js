@@ -8,11 +8,19 @@ const directory = path.join(__dirname, "lib");
 const moduleMap = {};
 const files = fs.readdirSync(directory);
 
+
 for (const file of files) {
   if (file.endsWith(".js")) {
-    const moduleName = path.basename(file, ".js"); // Remove .js extension
-    const modulePath = pathToFileURL(path.join(directory, file)).href; // Convert to URL
+    const moduleName = path.basename(file, ".js"); 
+    const modulePath = pathToFileURL(path.join(directory, file)).href;
 
+	try {
+		const module = await import(modulePath);
+		moduleMap[moduleName] = module.default;
+	} catch (error) {
+		console.error(`Error importing ${file}:`, error);
+    }
+/*
     try {
       // Dynamic importing is significantly different than static importing, especially
       // because import() returns a promise instead of evaluating the module.
@@ -24,7 +32,7 @@ for (const file of files) {
     } catch (error) {
       console.error(`Error importing ${file}:`, error);
     }
+*/
   }
 }
-
 export default moduleMap;
