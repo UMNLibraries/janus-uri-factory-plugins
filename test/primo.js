@@ -124,7 +124,7 @@ test('primo uriFor() valid "search" arguments', function (t) {
       field: null,
       format: 'videos'
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=tlevel%2Cinclude%2Conline_resources%24%24ITWINCITIES': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=tlevel%2Cinclude%2Conline_resources': {
       search: 'darwin',
       scope: null,
       field: null,
