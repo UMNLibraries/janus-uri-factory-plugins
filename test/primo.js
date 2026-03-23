@@ -49,22 +49,22 @@ test('primo uriFor() missing "search" arguments', function (t) {
 })
 
 test('primo invalid field args', function (t) {
-  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin')
+  tester.invalidFieldArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexclude%2Creviews%2Clk')
 })
 
 test('primo invalid scope args', function (t) {
-  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin')
+  tester.invalidScopeArgs(t, plugin, 'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexclude%2Creviews%2Clk')
 })
 
 test('primo uriFor() valid "search" arguments', function (t) {
   // testCases map expectedUrl to uriFor arguments
   const testCases = {
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=any%2Ccontains%2Cdarwin&facet=rtype%2Cexclude%2Creviews%2Clk': {
       search: 'darwin',
       scope: null,
       field: null
     },
-    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=sub%2Ccontains%2Cdarwin': {
+    'https://primo.lib.umn.edu/discovery/search?vid=01UMN_INST%3ATWINCITIES&lang=en&search_scope=TwinCitiesCampus_and_CI&tab=Everything&query=sub%2Ccontains%2Cdarwin&facet=rtype%2Cexclude%2Creviews%2Clk': {
       search: 'darwin',
       scope: null,
       field: 'subject'
